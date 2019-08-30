@@ -1,6 +1,6 @@
 module ApplicationHelper
   def full_title page_title
-    base_title = I18n.t "name_app"
+    base_title = I18n.t "layout.name_app"
     if page_title.blank?
       base_title
     else

@@ -1,0 +1,86 @@
+<footer class="py-5">
+  <div class="container py-xl-4">
+    <div class="row footer-top">
+      <div class="col-lg-4 footer-grid_section_1its footer-text">
+        <!-- logo -->
+        <h2>
+          <%= link_to(nil, href: root_path, class: "logo text-wh") do %>
+            <%= image_tag("logo.png", alt: "", class: "img-fluid") %>
+            <span><%= t "layout.header.food_and_drink" %></span>
+            <%= t "layout.header.fad" %>
+          <% end %>
+        </h2>
+        <!-- //logo -->
+        <p class="mt-lg-4 mt-3 mb-lg-5 mb-4">
+          <%= t "layout.footer.text_p1" %>
+        </p>
+        <!-- social icons -->
+        <ul class="top-right-info">
+          <li>
+            <p><%= t "layout.footer.follow_as" %>:</p>
+          </li>
+          <li class="facebook-w3">
+            <%= link_to(nil, href: "#facebook") do %>
+               <span class="fa fa-facebook"></span>
+            <% end %>
+          </li>
+          <li class="twitter-w3">
+            <%= link_to(nil, href: "#twitter") do %>
+               <span class="fa fa-twitter"></span>
+            <% end %>
+          </li>
+          <li class="google-w3">
+            <%= link_to(nil, href: "#google") do %>
+               <span class="fa fa-google-plus"></span>
+            <% end %>
+          </li>
+        </ul>
+        <!-- //social icons -->
+      </div>
+      <div class="col-lg-4 footer-grid_section_1its my-lg-0 my-sm-4 my-4">
+        <div class="footer-title">
+          <h3><%= t "layout.header.contact" %></h3>
+        </div>
+        <div class="footer-text mt-4">
+          <p><%= t "layout.footer.address" %></p>
+          <p class="my-2"><%= t "layout.footer.phone" %></p>
+          <p><%= t "layout.footer.email" %> :
+            <%= link_to t("layout.footer.email_address"),"#" %></p>
+        </div>
+        <div class="footer-title mt-4 pt-md-2">
+          <h3><%= t "layout.footer.payment" %></h3>
+        </div>
+        <ul class="list-unstyled payment-links mt-4">
+          <li>
+            <%= link_to(nil, href: "#") do %>
+              <%= image_tag("payments/pay2.png") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to(nil, href: "#") do %>
+              <%= image_tag("payments/pay5.png") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to(nil, href: "#") do %>
+              <%= image_tag("payments/pay1.png") %>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to(nil, href: "#") do %>
+              <%= image_tag("payments/pay4.png") %>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-4 footer-grid_section_1its">
+        <div class="footer-title">
+          <h3><%= t "layout.footer.follow_fanpage" %></h3>
+        </div>
+        <div class="info-form-right mt-4 p-0">
+          <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2F%25C4%2590%25E1%25BB%25A9c-M%25E1%25BA%25A1nh-It-Shoes-499971113855110%2F%3Fmodal%3Dadmin_todo_tour&tabs=timeline&width=340&height=260px&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=true&appId" width="340" height="260px" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

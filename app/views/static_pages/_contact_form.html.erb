@@ -1,0 +1,24 @@
+<div class="col-lg-7 contact-right mt-lg-0 mt-5">
+  <%= form_tag "#" do %>
+    <div class="row">
+      <div class="col-lg-6 form-group pr-lg-2">
+        <%= text_field_tag :name, nil,class: "form-control",
+          placeholder: t("layout.contact.full_name") %>
+      </div>
+      <div class="col-lg-6 form-group pl-lg-2">
+        <%= text_field_tag :email, nil, class: "form-control",
+          placeholder: t("layout.contact.email") %>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= text_field_tag :phone, nil, class: "form-control",
+        placeholder: t("layout.contact.phone") %>
+    </div>
+    <div class="form-group">
+      <%= text_area_tag :message, nil, class: "form-control",
+        placeholder: t("layout.contact.message") %>
+    </div>
+     <%= button_tag t("layout.contact.submit"),
+       class: "btn submit-contact-main ml-auto" %>
+  <% end %>
+</div>

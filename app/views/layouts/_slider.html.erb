@@ -1,0 +1,62 @@
+<div class="baneer-w3ls">
+  <div class="row no-gutters">
+    <div class="col-xl-5 col-lg-6">
+      <div class="banner-left-w3">
+        <div class="container">
+          <div class="banner-info_agile_w3ls">
+            <h5><%= t "layout.slider.h5" %></h5>
+            <h3 class="text-da mb-4"><%= t "layout.slider.flame" %>
+              <span><%= t "layout.slider.sub_flame" %></span>
+            </h3>
+            <p><%= t "layout.slider.p1" %></p>
+            <%= link_to(nil, href: about_path, class: "button-w3ls active mt-5") do %>
+              <%= t "layout.slider.read_more" %>
+              <span class="fa fa-caret-right ml-1" aria-hidden="true"></span>
+            <% end %>
+            <%= link_to(nil, href: "#", class: "button-w3ls mt-5 ml-2") do %>
+              <%= t "layout.slider.order_now" %>
+              <span class="fa fa-caret-right ml-1" aria-hidden="true"></span>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-xl-7 col-lg-6 callbacks_container">
+      <!-- banner slider -->
+      <div class="csslider infinity" id="slider1">
+        <input type="radio" name="slides" checked="checked" id="slides_1" />
+        <input type="radio" name="slides" id="slides_2" />
+        <input type="radio" name="slides" id="slides_3" />
+        <ul class="banner_slide_bg">
+          <li>
+            <div class="banner-top1">
+              <%= image_tag("sliders/1.jpg", width: "90%") %>
+            </div>
+          </li>
+          <li>
+            <div class="banner-top2">
+              <%= image_tag("sliders/2.jpg", width: "90%") %>
+            </div>
+          </li>
+          <li>
+            <div class="banner-top3">
+              <%= image_tag("sliders/3.jpg", width: "90%") %>
+            </div>
+          </li>
+        </ul>
+        <div class="arrows">
+          <label for="slides_1"></label>
+          <label for="slides_2"></label>
+          <label for="slides_3"></label>
+        </div>
+        <div class="navigation">
+          <div>
+            <label for="slides_1"></label>
+            <label for="slides_2"></label>
+            <label for="slides_3"></label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
