@@ -2,3 +2,12 @@ validates:
   maximum_name: 50
   maximum_email: 255
   minimum_password: 6
+year:
+  start: 10
+  end: 100
+sub_email:
+  num_first: 3
+  num_sub: 13
+sub_phone:
+  num_first: 2
+  num_sub: 8

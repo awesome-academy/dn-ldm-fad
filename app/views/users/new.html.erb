@@ -39,7 +39,9 @@
           </div>
           <div class="form-group">
             <%= f.label t "users.birthday" %>
-            <%= f.date_select :birthday, {order: [:month, :day, :year],
+            <%= f.date_select :birthday, {order: [:day, :month, :year],
+              prompt: { day: t("users.select_day"),
+              month: t("users.select_moth"), year: t("users.select_year") },
               start_year: load_start_year, end_year: load_end_year},
               class: :birthday %>
           </div>
