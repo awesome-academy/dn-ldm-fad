@@ -1,0 +1,31 @@
+<% provide(:title, t("users.login")) %>
+<% content_for :page_detail do %>
+  <%= render "layouts/page_detail" %>
+<% end %>
+<div class="login-contect py-5">
+  <div class="container py-xl-5 py-3">
+    <div class="login-body">
+      <div class="login p-4 mx-auto">
+        <h5 class="text-center mb-4"><%= t "users.login" %></h5>
+        <%= form_for(:session, url: login_path) do |f| %>
+          <div class="form-group">
+            <%= f.label t("users.email") %>
+            <%= f.email_field :email, class: "form-control" %>
+          </div>
+          <div class="form-group">
+            <%= f.label t("users.password") %>
+            <%= f.password_field :password, class: "form-control" %>
+          </div>
+          <%= f.button t("users.login"), class: "btn submit mb-4" %>
+          <p class="forgot-w3ls text-center mb-3">
+            <%= link_to t("users.forgot_password"), "#" %>
+          </p>
+          <p class="account-w3ls text-center text-da">
+            <%= t "users.not_have_account" %>
+            <%= link_to t("users.register_now"), register_path %>
+          </p>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
