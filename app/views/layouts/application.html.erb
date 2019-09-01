@@ -9,7 +9,7 @@
   <body>
     <%= render "layouts/header" %>
     <%= yield :page_detail %>
-    <div class="container a">
+    <div class="container a" style="margin-top: 20px;">
       <% flash.each do |message_type, message| %>
         <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
       <% end %>

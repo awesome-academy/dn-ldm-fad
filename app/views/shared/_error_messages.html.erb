@@ -3,11 +3,11 @@
     <div class="alert alert-danger a">
       <%= t "error_messages.form_error" %>
       <%= t("error_messages.error", count: object.errors.count) %>.
+      <ul class="a" style="list-style-type: none;">
+      <% object.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
     </div>
-    <ul class="a">
-    <% object.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-    <% end %>
-    </ul>
   </div>
 <% end %>
