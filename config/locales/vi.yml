@@ -3,6 +3,11 @@ vi:
   language: "Ngôn ngữ"
   english: "Tiếng anh"
   vietnamese: "Tiếng Việt"
+  error_messages:
+    form_error: "Biễu mẫu có"
+    error:
+      one: "%{count} lỗi"
+      other: "%{count} lỗi"
   layout:
     name_app: "Thức ăn và đồ uống"
     header:
@@ -80,4 +85,18 @@ vi:
       email: "Email"
       message: "Tin nhắn"
       submit: "Gửi"
-
+  users:
+    register: "Đăng kí"
+    your_name: "Tên của bạn"
+    email: "Địa chỉ email"
+    password: "Mật khẩu"
+    confirm_pass: "Nhập lại mật khẩu"
+    p: "Bằng cách nhấp vào Đăng ký, tôi đồng ý với các điều khoản của bạn"
+    sex: "Giới tính"
+    male: "Nam"
+    female: "Nữ"
+    birthday: "Ngày sinh"
+    phone: "Số điện thoại"
+    address: "Địa chỉ"
+    register_success: "Đăng kí thành công!"
+    register_fail: "Đăng kí thất bại!"

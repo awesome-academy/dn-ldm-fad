@@ -3,6 +3,11 @@ en:
   language: "Language"
   english: "English"
   vietnamese: "Vietnamese"
+  error_messages:
+    form_error: "The form contains"
+    error:
+      one: "%{count} error"
+      other: "%{count} errors"
   layout:
     name_app: "Food And Drink"
     header:
@@ -80,4 +85,18 @@ en:
       email: "Email"
       message: "Message"
       submit: "Submit"
-
+  users:
+    register: "Register"
+    your_name: "Your Name"
+    email: "Email"
+    password: "Password"
+    confirm_pass: "Confirm Password"
+    p: "By clicking Register, I agree to your terms"
+    sex: "Sex"
+    male: "Male"
+    female: "Female"
+    birthday: "Birthday"
+    phone: "Phone"
+    address: "Address"
+    register_success: "Register Success!"
+    register_fail: "Register fail!"
