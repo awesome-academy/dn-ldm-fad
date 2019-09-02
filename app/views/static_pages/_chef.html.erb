@@ -1,0 +1,58 @@
+<!-- team -->
+<div class="team py-5" id="chefs">
+  <div class="container-fluid py-xl-5 py-lg-3">
+    <div class="title-section text-center mb-md-5 mb-4">
+      <h3 class="w3ls-title mb-3"><%= t "layout.about.our" %>
+        <span><%= t "layout.about.chef" %></span>
+      </h3>
+      <p class="titile-para-text mx-auto"><%= t "layout.about.p4" %></p>
+    </div>
+    <div class="row team-bottom pt-4">
+      <div class="col-lg-3 col-6 team-grid">
+        <%= link_to(nil, href: "#team") do %>
+          <%= image_tag("chefs/t1.png", class: "img-fluid") %>
+        <% end %>
+        <div class="caption">
+          <div class="team-text">
+            <h4><%= link_to t("layout.about.chef1"),"#team" %></h4>
+          </div>
+          <%= render "follow_chef" %>
+        </div>
+      </div>
+      <div class="col-lg-3 col-6 team-grid">
+        <%= link_to(nil, href: "#team") do %>
+          <%= image_tag("chefs/t2.png", class: "img-fluid") %>
+        <% end %>
+        <div class="caption">
+          <div class="team-text">
+            <h4><%= link_to t("layout.about.chef2"),"#team" %></h4>
+          </div>
+          <%= render "follow_chef" %>
+        </div>
+      </div>
+      <div class="col-lg-3 col-6 team-grid mt-lg-0 mt-4">
+        <%= link_to(nil, href: "#team") do %>
+          <%= image_tag("chefs/t3.png", class: "img-fluid") %>
+        <% end %>
+        <div class="caption">
+          <div class="team-text">
+            <h4><%= link_to t("layout.about.chef3"),"#team" %></h4>
+          </div>
+          <%= render "follow_chef" %>
+        </div>
+      </div>
+      <div class="col-lg-3 col-6 team-grid  mt-lg-0 mt-4">
+        <%= link_to(nil, href: "#team") do %>
+          <%= image_tag("chefs/t4.png", class: "img-fluid") %>
+        <% end %>
+        <div class="caption">
+          <div class="team-text">
+            <h4><%= link_to t("layout.about.chef4"),"#team" %></h4>
+          </div>
+          <%= render "follow_chef" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- //team -->

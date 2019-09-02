@@ -1,0 +1,55 @@
+<% provide(:title, t("layout.contact.contact")) %>
+<% content_for :page_detail do %>
+  <%= render "layouts/page_detail" %>
+<% end %>
+<section class="ab-info-main py-5" id="contact" style="margin-top: 20px;">
+    <div class="container py-xl-5 py-lg-3">
+      <div class="title-section text-center mb-md-5 mb-4">
+        <h3 class="w3ls-title mb-3"><%= t "layout.contact.name" %>
+         <span><%= t "layout.contact.us" %></span>
+       </h3>
+        <p class="titile-para-text mx-auto">
+          <%= t "layout.contact.p" %>
+        </p>
+      </div>
+      <div class="row contact-agileinfo pt-lg-4">
+        <!-- contact address -->
+        <div class="col-md-5 address">
+          <h3 class="footer-title mb-4 pb-lg-2">
+            <%= t "layout.contact.our_address" %>
+          </h3>
+          <div class="row address-info-w3ls">
+            <div class="col-3 address-left">
+              <%= image_tag "contacts/c1.png", class: "img-fluid" %>
+            </div>
+            <div class="col-9 address-right mt-2">
+              <h5 class="address mb-2"><%= t "layout.contact.address" %></h5>
+              <p><%= t "layout.header.map" %></p>
+            </div>
+          </div>
+          <div class="row address-info-w3ls my-2">
+            <div class="col-3 address-left">
+              <%= image_tag "contacts/c2.png", class: "img-fluid" %>
+            </div>
+            <div class="col-9 address-right mt-2">
+              <h5 class="address mb-2"><%= t "layout.footer.email" %></h5>
+              <p>
+                <%= link_to t("layout.footer.email_address"),
+                  "mailto:example@email.com" %>
+              </p>
+            </div>
+          </div>
+          <div class="row address-info-w3ls">
+            <div class="col-3 address-left">
+              <%= image_tag "contacts/c3.png", class: "img-fluid" %>
+            </div>
+            <div class="col-9 address-right mt-2">
+              <h5 class="address mb-2"><%= t "layout.contact.phone" %></h5>
+              <p><%= t "layout.contact.phone_number" %></p>
+            </div>
+          </div>
+        </div>
+        <%= render "contact_form" %>
+      </div>
+    </div>
+  </section>

@@ -3,8 +3,25 @@
   <head>
     <title><%= full_title(yield(:title)) %></title>
     <%= render "layouts/rails_default" %>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
   </head>
   <body>
-    <%= yield %>
+    <%= render "layouts/header" %>
+    <%= yield :slider %>
+    <%= yield :about %>
+    <%= yield :page_detail %>
+    <div class="container">
+      <% flash.each do |message_type, message| %>
+        <%= content_tag(:div, message, class: "alert alert-#{message_type}") %>
+      <% end %>
+      <%= yield %>
+      <%= debug(params) if Rails.env.development? %>
+    </div>
+    <%= yield :middle %>
+    <%= yield :chef %>
+    <%= yield :wthree_slider %>
+    <%= render "layouts/footer" %>
+    <%= render "layouts/coppy-right" %>
   </body>
 </html>
