@@ -1,0 +1,62 @@
+<% provide(:title, t("users.register")) %>
+<% content_for :page_detail do %>
+  <%= render "layouts/page_detail" %>
+<% end %>
+<div class="login-contect py-5">
+  <div class="container py-xl-5 py-3">
+    <div class="login-body">
+      <div class="login p-4 mx-auto">
+        <h5 class="text-center mb-4"><%= t "users.register" %></h5>
+        <%= form_for(@user) do |f| %>
+          <%= render "shared/error_messages", object: f.object %>
+          <div class="form-group">
+            <%= f.label t "users.your_name" %>
+            <span class="text-require">*</span>
+            <%= f.text_field :name, class: "form-control a" %>
+          </div>
+          <div class="form-group">
+            <%= f.label t "users.email" %>
+            <span class="text-require">*</span>
+            <%= f.email_field :email, class: "form-control a" %>
+          </div>
+          <div class="form-group">
+            <%= f.label t "users.password" %>
+            <span class="text-require">*</span>
+            <%= f.password_field :password, class: "form-control a" %>
+          </div>
+          <div class="form-group">
+            <%= f.label t "users.confirm_pass" %>
+            <span class="text-require">*</span>
+            <%= f.password_field :password_confirmation,
+              class: "form-control a" %>
+          </div>
+          <div class="form-group">
+            <%= f.label t "users.sex" %>:
+            <%= f.radio_button :sex, 0 %>
+            <span class="sex"><%= t("users.male") %></span>
+            <%= f.radio_button :sex, 1 %>
+            <span class="sex"><%= t("users.female") %></span>
+          </div>
+          <div class="form-group">
+            <%= f.label t "users.birthday" %>
+            <%= f.date_select :birthday, {order: [:month, :day, :year],
+              start_year: load_start_year, end_year: load_end_year},
+              class: :birthday %>
+          </div>
+          <div class="form-group">
+            <%= f.label t "users.phone" %>
+            <%= f.text_field :phone, class: "form-control a" %>
+          </div>
+          <div class="form-group">
+            <%= f.label t "users.address" %>
+            <%= f.text_field :address, class: "form-control a" %>
+          </div>
+          <%= f.button t("users.register"), class: "btn submit mb-4" %>
+        <% end %>
+        <p class="text-center" class="text-da">
+          <%= t "users.p" %>
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
