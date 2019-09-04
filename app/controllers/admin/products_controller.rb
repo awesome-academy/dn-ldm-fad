@@ -1,6 +1,7 @@
 class Admin::ProductsController < Admin::AdminsController
   before_action :load_product, only: [:edit, :update, :destroy]
   before_action :status_to_i, only: [:create, :update]
+  before_action :check_order, only: :destroy
 
   def index
     @products = Product.sort_by_created_at.paginate page: params[:page],
@@ -35,10 +36,10 @@ class Admin::ProductsController < Admin::AdminsController
   end
 
   def destroy
-    if @product.destroy
-      flash[:success] = t "admin.products.destroy_success"
+    if @count.zero?
+      destroy_product
     else
-      flash[:danger] = t "admin.products.destroy_fail"
+      flash[:danger] = t "admin.products.destroy_fail_count", count: @count
     end
     redirect_to admin_products_path
   end
@@ -81,7 +82,24 @@ class Admin::ProductsController < Admin::AdminsController
   def load_product
     @product = Product.find_by id: params[:id]
     return if @product
-    flash[:danger] = t "admin.products.not_found"
+    flash[:danger] = t "admin.orders.not_found"
     redirect_to admin_products_path
+  end
+
+  def destroy_product
+    if @product.destroy
+      flash[:success] = t "admin.products.destroy_success"
+    else
+      flash[:danger] = t "admin.products.destroy_fail"
+    end
+  end
+
+  def check_order
+    @count = 0
+    @product.orders.each do |order|
+      if order.waiting? || order.approve? || order.delivering?
+        @count += Settings.category.count
+      end
+    end
   end
 end

@@ -24,6 +24,7 @@ product:
     rows: 5
   hide: 0
   block: 1
+  count: 1
 cart:
   min_quantity: 1
   max_quantity: 100
@@ -46,3 +47,6 @@ category:
   area:
     cols: 68
     rows: 7
+  count: 1
+order:
+  admin_paginate: 5

@@ -1,6 +1,7 @@
 class Admin::CategoriesController < Admin::AdminsController
   before_action :load_categories, only: [:index, :create]
   before_action :load_category, only: [:edit, :update, :destroy]
+  before_action :check_product_order, only: :destroy
 
   def index
     @category = Category.new
@@ -30,10 +31,10 @@ class Admin::CategoriesController < Admin::AdminsController
   end
 
   def destroy
-    if @category.destroy
-      flash[:success] = t "admin.categories.destroy_success"
+    if @count.zero?
+      destroy_category
     else
-      flash[:danger] = t "admin.categories.destroy_fail"
+      flash[:danger] = t "admin.categories.destroy_fail_count", count: @count
     end
     redirect_to admin_categories_path
   end
@@ -54,5 +55,24 @@ class Admin::CategoriesController < Admin::AdminsController
     return if @category
     flash[:danger] = "categories.not_found"
     redirect_to admin_categories_path
+  end
+
+  def destroy_category
+    if @category.destroy
+      flash[:success] = t "admin.categories.destroy_success"
+    else
+      flash[:danger] = t "admin.categories.destroy_fail"
+    end
+  end
+
+  def check_product_order
+    @count = 0
+    @category.products.each do |product|
+      product.orders.each do |order|
+        if order.waiting? || order.approve? || order.delivering?
+          @count += Settings.category.count
+        end
+      end
+    end
   end
 end

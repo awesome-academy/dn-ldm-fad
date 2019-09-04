@@ -23,6 +23,7 @@ Rails.application.routes.draw do
       member do
         post :rating, to: "products#rating_product"
         delete :destroy_rating, to: "products#destroy_rating"
+        get :load_product_by_category, to: "products#load_product_by_category"
       end
     end
     resources :orders, only: [:new, :create]
@@ -30,15 +31,21 @@ Rails.application.routes.draw do
       get "/", to: "dashboars#index"
       resources :users, except: [:new, :create, :show] do
         collection do
-          get "/search", to: "users#search"
+          get :search, to: "users#search"
         end
       end
       resources :categories, except: :show
       resources :products, except: :show do
         collection do
-          get "/search", to: "products#search"
+          get :search, to: "products#search"
           get :categories, to: "products#load_categories"
           get :product_types, to: "products#load_products_types"
+        end
+      end
+      resources :orders, except: [:new, :create, :destroy] do
+        collection do
+          get :search, to: "orders#search"
+          get :filter_by_status, to: "orders#filter_by_status"
         end
       end
     end
