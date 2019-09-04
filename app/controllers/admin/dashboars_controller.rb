@@ -1,7 +1,4 @@
-class Admin::DashboarsController < ApplicationController
-  layout "admin", only: :index
-  before_action :check_admin?, only: :index
-
+class Admin::DashboarsController < Admin::AdminsController
   def index
     @count_product = Product.count
     @count_category = Category.count

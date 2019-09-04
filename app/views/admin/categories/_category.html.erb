@@ -1,0 +1,14 @@
+<tr>
+  <td><%= category.id %></td>
+  <td><%= category.name %></td>
+  <td><%= check_description category.description %></td>
+  <td>
+      <%= link_to edit_admin_category_path(category.id) do %>
+        <span class="btn glyphicon glyphicon-pencil">
+      <% end %>
+      <%= link_to admin_category_path(category.id), method: :delete,
+        data: {confirm: t("admin.categories.you_sure")} do %>
+        <span class="glyphicon glyphicon-trash span-delete"></span>
+      <% end %>
+  </td>
+</tr>

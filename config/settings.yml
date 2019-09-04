@@ -5,6 +5,7 @@ validates:
   minimum_password: 6
   maximum_phone: 10
   maximum_address: 255
+  maximum_name_cate: 255
 year:
   start: 10
   end: 100
@@ -34,3 +35,7 @@ user:
 sex:
   male: 0
   female: 1
+category:
+  area:
+    cols: 68
+    rows: 7

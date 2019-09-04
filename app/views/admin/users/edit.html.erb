@@ -9,7 +9,7 @@
   </div>
   <div class="row">
     <div class="col-sm-6">
-       <%= form_for(@user, url: admin_user_path(@user.id)) do |f| %>
+       <%= form_for [:admin, @user] do |f| %>
           <%= render "shared/error_messages", object: f.object %>
           <div class="form-group">
             <%= f.label t "users.your_name" %>

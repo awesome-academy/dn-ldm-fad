@@ -12,7 +12,7 @@ module ApplicationHelper
     return unless object.errors[field].present?
     name = custom_field_name ? custom_field_name : field.to_s.titlecase
     raw "<span class=\"error_message\">  #{name}
-        #{object.errors[field].first}</span>"
+      #{object.errors[field].first}</span>"
   end
 
   def checked_image object, name

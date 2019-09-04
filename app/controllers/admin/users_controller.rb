@@ -1,10 +1,8 @@
-class Admin::UsersController < ApplicationController
-  layout "admin"
-  before_action :check_admin?
+class Admin::UsersController < Admin::AdminsController
   before_action :load_user, only: [:edit, :update, :destroy]
 
   def index
-    @users = User.sort_desc.paginate page: params[:page],
+    @users = User.sort_by_created_at.paginate page: params[:page],
       per_page: Settings.user.paginate
   end
 
