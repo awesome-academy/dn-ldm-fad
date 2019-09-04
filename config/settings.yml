@@ -11,3 +11,5 @@ sub_email:
 sub_phone:
   num_first: 2
   num_sub: 8
+product:
+  paginate: 8

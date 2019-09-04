@@ -1,0 +1,23 @@
+<div class="col-lg-3 col-md-6 mb">
+  <div class="card border-0 med-blog">
+    <div class="card-header p-0">
+      <a href="menu.html">
+      <%= link_to nil, href: "#" do %>
+        <%= image_tag("products/#{product.image}", class: "card-img-bottom") %>
+      <% end %>
+    </div>
+    <div class="card-body border border-top-0">
+      <h5 class="blog-title card-title m-0">
+        <%= link_to product.name, "#" %>
+      </h5>
+      <p><%= product.category_name %> </p>
+      <p><%= number_to_currency(product.price) %></p>
+      <p class="mt-3"><%= product.description %></p>
+      <%= link_to nil, href: "#", class: "btn button-w3ls mt-4 mb-3" do %>
+        <%= t("cart.add") %>
+        <span class="fa fa-shopping-cart ml-1" aria-hidden="true"></span>
+      <% end %>
+      </a>
+    </div>
+  </div>
+</div>
