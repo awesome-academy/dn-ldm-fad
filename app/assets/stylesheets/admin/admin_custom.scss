@@ -1,4 +1,6 @@
 $color-white: #fff;
+$color-000: #000;
+$red: red;
 
 div.si-co {
   margin-top: -32px;
@@ -26,4 +28,21 @@ span.icon-admin {
 .panel-red {
   background: red;
   padding-right: 80px;
+}
+
+table {
+  text-align: center;
+  .btn-role {
+    padding: 3px;
+    border-radius: 5px;
+  }
+  li.li-option {
+    list-style-type: none;
+    a.a-opiton {
+    color: $color-000;
+    }
+  }
+}
+.error_message {
+  color: $red;
 }

@@ -22,4 +22,3 @@
 //= require custom
 //= require comment-rating.js
 //= require admin/bootstrap-datepicker.js
-//= require admin/easypiechart.js

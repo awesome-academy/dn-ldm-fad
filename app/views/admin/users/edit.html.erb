@@ -1,0 +1,50 @@
+<% provide(:title, t("users.edit")) %>
+<div class="container">
+  <div id="navbar" class="row">
+    <div class="col-sm-12">
+      <nav class="navbar navbar-default">
+        <h3><%= t "users.edit" %></h3>
+      </nav>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+       <%= form_for(@user, url: admin_user_path(@user.id)) do |f| %>
+          <%= render "shared/error_messages", object: f.object %>
+          <div class="form-group">
+            <%= f.label t "users.your_name" %>
+            <span class="text-require">*</span>
+            <%= f.text_field :name, class: "form-control a" %>
+          </div>
+          <div class="form-group">
+            <%= f.label t "users.sex" %>:
+            <%= f.radio_button :sex, Settings.sex.male,
+              @user.male? ? {checked: true} : {} %>
+            <span class="sex"><%= t("users.male") %></span>
+            <%= f.radio_button :sex, Settings.sex.female,
+              @user.female? ? {checked: true} : {} %>
+            <span class="sex"><%= t("users.female") %></span>
+          </div>
+          <div class="form-group">
+            <%= f.label t "users.birthday" %>
+            <%= f.date_select :birthday, {order: [:day, :month, :year],
+              prompt: { day: t("users.select_day"),
+              month: t("users.select_moth"), year: t("users.select_year") },
+              start_year: load_start_year, end_year: load_end_year},
+              class: :birthday %>
+          </div>
+          <div class="form-group">
+            <%= f.label t "users.phone" %>
+            <%= f.text_field :phone, class: "form-control a" %>
+          </div>
+          <div class="form-group">
+            <%= f.label t "users.address" %>
+            <%= f.text_field :address, class: "form-control a" %>
+          </div>
+          <%= f.button t("users.save"), class: "btn-profile" %>
+          <%= link_to t("users.back"), admin_users_path,
+            class: "btn-back-profile" %>
+        <% end %>
+    </div>
+  </div>
+</div>

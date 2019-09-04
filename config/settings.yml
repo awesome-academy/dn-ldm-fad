@@ -29,3 +29,8 @@ date_format:
 comment:
   cols: 50
   rows: 4
+user:
+  paginate: 10
+sex:
+  male: 0
+  female: 1

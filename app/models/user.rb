@@ -14,7 +14,11 @@ class User < ApplicationRecord
   before_save :downcase_email
   has_secure_password
   mount_uploader :picture, PictureUploader
-
+  scope :sort_desc, ->{order created_at: :desc}
+  scope :by_name_email_phone, (lambda do |key_search|
+    where "name LIKE (?) OR email LIKE (?) OR phone LIKE (?)",
+      "%#{key_search}%", "%#{key_search}%", "%#{key_search}%"
+  end)
   private
 
   def downcase_email

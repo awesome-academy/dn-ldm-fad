@@ -7,10 +7,6 @@ module UsersHelper
     Date.today.year - Settings.year.end
   end
 
-  def checked_sex_radio sex
-    @current_user.sex == sex ? {checked: true} : {checked: false}
-  end
-
   def sub_email_user
     length = @current_user.email.length
     sub_email = @current_user.email.first(Settings.sub_email.num_first)
