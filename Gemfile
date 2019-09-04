@@ -10,7 +10,7 @@ gem "bootstrap-sass", "3.3.7"
 gem "carrierwave", "1.2.2"
 gem "coffee-rails", "~> 4.2"
 gem "config"
-gem "faker", "1.7.3"
+gem "faker"
 gem "figaro"
 gem "font-awesome-sass", "~> 4.2.0"
 gem "i18n-js"
@@ -31,6 +31,8 @@ gem "will_paginate", "3.1.6"
 group :development, :test do
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
   gem "capybara", ">= 2.15"
+  gem "factory_bot_rails"
+  gem "rspec-rails", "~> 3.8"
   gem "selenium-webdriver"
   gem "sqlite3", "1.3.13"
 end
@@ -40,6 +42,12 @@ group :development do
   gem "spring"
   gem "spring-watcher-listen", "~> 2.0.0"
   gem "web-console", ">= 3.3.0"
+end
+
+group :test do
+  gem "guard-rspec"
+  gem "launchy"
+  gem "shoulda-matchers"
 end
 
 group :production do
