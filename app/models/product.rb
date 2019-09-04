@@ -7,4 +7,5 @@ class Product < ApplicationRecord
   enum status: {hide: 0, display: 1}
   scope :product_display, ->{where status: :display}
   scope :sort_desc, ->{order created_at: :desc}
+  scope :find_collection_id, ->(ids){where id: ids}
 end

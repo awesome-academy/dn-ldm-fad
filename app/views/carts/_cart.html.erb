@@ -1,0 +1,26 @@
+<tr>
+  <td><br><br><span class="spandelete">
+    <a href="" onclick="return confirm('Bạn có chắc chắn muốn xóa?')"  class="glyphicon glyphicon-remove btn-remove"></a>
+    </span>
+  </td>
+  <td>
+    <%= link_to "#" do %>
+      <%= image_tag "products/#{cart.image}"%>
+    <% end %>
+  </td>
+  <td><span><br><br><%= cart.name %></span></td>
+  <td class="td1 spanprice1">
+    <br><span class="spansp">
+      <br><%= cart.price %> ₫
+    </span>
+  </td>
+  <td class="td1 td-qty">
+    <div class="form-group">
+      <br><br>
+      <%= number_field_tag :quantity, @carts[cart.id.to_s], min: 1, max: 100  %>
+    </div>
+  </td>
+  <td class="td1 spanprice1"><br><br><span class="spansp">
+   <%= amount_product @carts[cart.id.to_s], cart.price %> đ
+  ₫</span></td>
+</tr>

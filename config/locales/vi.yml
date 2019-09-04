@@ -141,8 +141,22 @@ vi:
     tasty: "Ngon"
     our: "Thực Đơn"
     menu: "Của Chúng Tôi"
+    product_not_found: "Không tìm thấy món"
   cart:
     add: "Thêm vào giỏ"
+    add_cart_success: "Thêm giỏ hàng thành công!"
+    cart: "Giỏ hàng"
+    product: "Món"
+    price: "Đơn giá"
+    quantity: "Số lượng"
+    mount: "Số tiền"
+    total_price: "Tổng cộng"
+    continue: "TIẾP TỤC XEM SẢN PHẨM"
+    shipping: "Giao hàng"
+    free_ship: "Giao hàng miễn phí"
+    checkout: "TIẾN HÀNH THANH TOÁN"
+    tam_tinh: "Tạm tính"
+    cart_empty: "Bạn chưa có sản phẩm nào trong giỏ hàng!"
   number:
     currency:
       format:

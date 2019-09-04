@@ -1,0 +1,60 @@
+<% provide(:title, t("cart.cart")) %>
+<% content_for :page_detail do %>
+  <%= render "layouts/page_detail" %>
+<% end %>
+<% if @products.any? %>
+<div class="row a">
+  <div class="col-sm-9 div-cart">
+    <table class="table">
+      <thead>
+        <tr>
+          <th class="th-product" colspan="3"><%= t "cart.product" %></th>
+          <th class="th1"><%= t "cart.price" %></th>
+          <th class="th1"><%= t "cart.quantity" %></th>
+          <th class="th1"><%= t "cart.amount" %></th>
+        </tr>
+      </thead>
+      <tbody>
+        <%= render partial: "cart", collection: @products %>
+      </tbody>
+    </table>
+    <%= link_to products_path, class: "btn-continue" do %>
+      <span class="glyphicon glyphicon-heart"></span><%= t "cart.continue" %></a>
+    <% end %>
+  </div>
+  <div class="col-sm-3">
+    <table class="table table-hover table-cart">
+      <thead>
+        <tr>
+          <th  width="100%"><%= t "cart.total_price" %></th>
+        </tr>
+        <tr>
+          <td width="14%"><span class=""><%= t "cart.tam_tinh" %></span>
+            <span class="pull-right span-tam">
+              <b><%= @total_price %> ₫</b></span>
+          </td>
+        </tr>
+        <tr>
+          <td><%= t "cart.shipping" %>
+            <span class="pull-right"><%= t "cart.free_ship" %></span>
+          </td>
+        </tr>
+        <tr>
+          <td width="14%"><span class=""><%= t "cart.total_price" %></span>
+            <span class="pull-right span-tam">
+              <b><%= @total_price %> ₫</b>
+            </span>
+          </td>
+        </tr>
+        <tr>
+          <td class="td-checkout">
+            <%= link_to t("cart.checkout"), "#" %>
+          </td>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>
+<% else %>
+  <%= render "cart_empty" %>
+<% end %>
