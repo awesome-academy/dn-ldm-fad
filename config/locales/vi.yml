@@ -158,6 +158,11 @@ vi:
     tam_tinh: "Tạm tính"
     cart_empty: "Bạn chưa có sản phẩm nào trong giỏ hàng!"
     you_sure: "Bạn có chắc muốn xóa?"
+    update_cart_success: "Cập nhật giỏ hàng thành công!"
+    update_cart_fail: "Cập nhật giỏ hàng thất bại!"
+    remove_success: "Xóa giỏ hàng thành công!"
+    remove_fail: "Xoá giỏ hàng thất bại!"
+    you_sure: "Bạn có chắc muốn xóa?"
   number:
     currency:
       format:

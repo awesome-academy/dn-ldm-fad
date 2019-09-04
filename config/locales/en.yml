@@ -158,6 +158,11 @@ en:
     tam_tinh: "Provisional:"
     cart_empty: "My shopping cart empty!"
     you_sure: "Are you sure remove?"
+    update_cart_success: "Update cart success!"
+    update_cart_fail: "Update cart fail!"
+    remove_success: "Remove success!"
+    remove_fail: "Remove fail!"
+    you_sure: "Are you sure remove?"
   number:
     currency:
       format:

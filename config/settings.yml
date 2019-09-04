@@ -16,5 +16,4 @@ product:
 cart:
   min_quantity: 1
   max_quantity: 100
-cart:
   qty_add: 1
