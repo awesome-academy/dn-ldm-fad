@@ -1,6 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :check_logged_out, only: [:new, :create]
-  before_action :load_cart_session, only: [:new, :create]
+  before_action :check_logged_out, :load_cart_session, only: [:new, :create]
   before_action :load_products, only: :new
   after_action :remove_carts, only: :create
 
@@ -10,7 +9,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    Order.transaction do
+    ActiveRecord::Base.transaction do
       order = @current_user.orders.create! order_params
       order.create_payment type_payment: params[:type_payment].to_i
       create_order_detail @carts, order
@@ -33,7 +32,7 @@ class OrdersController < ApplicationController
 
   def load_products
     @products = Product.by_ids @carts.keys
-    return  if @products
+    return if @products
     flash[:danger] = t "menu.product_not_found"
     redirect_to root_path
   end
