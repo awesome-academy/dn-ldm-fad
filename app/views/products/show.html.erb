@@ -5,7 +5,7 @@
 <div class="cont span_2_of_3">
   <div class="col-lg-5">
     <div class="mySlides">
-      <%= image_tag("products/#{@product.image}") %>
+      <%= image_tag("products/#{@product.picture}") %>
     </div>
   </div>
   <div class="col-lg-5">
@@ -74,7 +74,7 @@
   <div class="clear"></div>
   </div>
   <div class="toogle">
-    <h3 class="m_3"><%= t "detail.description" %></h3>
+    <h1><%= t "detail.description" %></h1><hr>
     <p class="m_text">[<%= @product.name %>]</p>
     <p><%= @product.description %></p>
     <p class="m_text">-----------------------------------------</p>
@@ -83,7 +83,6 @@
     <p class="m_text"><%= t "detail.p3" %></p>
     <p class="m_text"><%= t "detail.p4" %></p>
   </div>
-  <div class="toogle">
-    </div>
   <div class="clear"></div>
+  <%= render "rating" %>
 </div>

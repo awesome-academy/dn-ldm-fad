@@ -1,0 +1,31 @@
+<div class="row ma">
+  <div class="col-sm-3">
+    <%= image_tag(check_img_comment(comment.user_picture.url),
+      class: "img-circle img-rate") %>
+    <div class="review-block-name"><%= comment.user_name %></div>
+    <div class="review-block-date">
+      <%= comment.created_at.strftime(Settings.date_format.vn) %>
+    </div>
+  </div>
+  <div class="col-sm-9">
+    <div class="review-block-rate">
+      <% for i in 1..5 %>
+        <% if i <= get_star_i(comment.star) %>
+          <span class="glyphicon glyphicon-star s-star"></span>
+        <% else %>
+          <span class="glyphicon glyphicon-star s-star-default"></span>
+        <% end %>
+      <% end %>
+    </div>
+    <span>
+      <%= t "rating.#{comment.star}" %>
+      (<%= t "rating.star", count: get_star_i(comment.star) %>)
+    </span>
+    <div class="review-block-description"><%= comment.comment %>.
+      <% if logged_in? && comment.user_id == current_user.id %>
+        <%= link_to t("detail.delete"), destroy_rating_product_path(comment.id),
+         method: :delete, data: {confirm: t("cart.you_sure")} %>
+      <% end %>
+    </div>
+  </div>
+</div>
