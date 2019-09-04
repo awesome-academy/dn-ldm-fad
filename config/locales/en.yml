@@ -182,6 +182,11 @@ en:
     remove_success: "Remove success!"
     remove_fail: "Remove fail!"
     you_sure: "Are you sure remove?"
+    update_cart_fail_qty_not_enough: "Cart update failed. The quantity of products in stock is not enough."
+    update_cart_fail_qty: "Cart update failed. Quantity must be greater than zero"
+    see: "SEE CART"
+    order: "CHECKOUT"
+    update_cart_up_qty: "Increased number of products."
   number:
     currency:
       format:

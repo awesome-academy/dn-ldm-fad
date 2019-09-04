@@ -1,0 +1,14 @@
+<% if @status %>
+  $("#cart-content").append("<%= j render partial: 'layouts/cart_item', locals: {product: @product} %>" );
+<% else %>
+  <% @qty = @carts[@product.id.to_s] %>
+  $('#qty-' + '<%= @product.id %>').text('x<%= @qty %>');
+<% end %>
+$('.qty-cart').text('<%= @carts.size %>');
+$('#amount-price-' + '<%= @product.id %>').text(I18n.toCurrency('<%= @amount %>'));
+$('#text-total').html(I18n.t("cart.total_price") + '<span class="total_price-cart">'
+  + I18n.toCurrency('<%= @total %>') + '</span>');
+html = '<a class="a-cart cart-ml" href="<%= carts_path %>">' + I18n.t("cart.see") +'</a>'
+html += '<a class="a-cart-c" href="<%= new_order_path %>">' + I18n.t("cart.order") +'</a>'
+$("#cart-btn").html(html);
+alert('<%= @message %>')

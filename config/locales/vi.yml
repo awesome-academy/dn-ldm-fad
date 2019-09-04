@@ -182,6 +182,11 @@ vi:
     remove_success: "Xóa giỏ hàng thành công!"
     remove_fail: "Xoá giỏ hàng thất bại!"
     you_sure: "Bạn có chắc muốn xóa?"
+    update_cart_fail_qty_not_enough: "Cập nhật giỏ hàng thất bại. Số lượng sản phẩm trong kho không đủ."
+    update_cart_fail_qty: "Cập nhật giỏ hàng thất bại. Số lượng phải lớn hơn không."
+    see: "XEM GIỎ HÀNG"
+    order: "THANH TOÁN"
+    update_cart_up_qty: "Đã tăng số lượng sản phẩm."
   number:
     currency:
       format:
@@ -328,7 +333,7 @@ vi:
       description: "Mô tả"
       action: "Hành động"
       id: "ID"
-      you_sure: "Bạn có chắc chắn muốn xóa? Warning: Tất cả những sản phẩm thuộc danh mục này cũng bị xóa!"
+      you_sure: "Bạn có chắc chắn muốn xóa? Cảnh báo: Tất cả những sản phẩm thuộc danh mục này cũng bị xóa!"
       destroy_success: "Xóa danh mục thành công!"
       destroy_fail: "Xóa danh mục thất bại!"
       edit: "Sủa danh mục"

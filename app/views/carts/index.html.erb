@@ -2,11 +2,11 @@
 <% content_for :page_detail do %>
   <%= render "layouts/breadcrum" %>
 <% end %>
-<% if @products.any? %>
+<% if @products_cart.any? %>
 <div id="message-cart"></div>
   <div class="row a">
     <div class="col-sm-9 div-cart">
-      <table class="table">
+      <table class="table" id="table-cart">
         <thead>
           <tr>
             <th class="th-product" colspan="3"><%= t "cart.product" %></th>
@@ -16,7 +16,7 @@
           </tr>
         </thead>
         <tbody>
-          <%= render partial: "cart", collection: @products %>
+          <%= render partial: "cart", collection: @products_cart %>
         </tbody>
       </table>
       <%= link_to products_path, class: "btn-continue" do %>
@@ -24,7 +24,7 @@
       <% end %>
     </div>
     <div class="col-sm-3">
-      <table class="table table-hover table-cart">
+      <table class="table table-hover table-cart" id="table-order">
         <thead>
           <tr>
             <th  width="100%"><%= t "cart.total_price" %></th>

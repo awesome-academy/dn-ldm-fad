@@ -3,40 +3,51 @@ class CartsController < ApplicationController
   before_action :load_products, only: :update
   before_action :load_product, only: [:add, :update]
 
-  def index
-    @products = Product.by_ids @carts.keys
-    @total_price = total_price @carts, @products
-  end
+  def index; end
 
   def add
-    if @carts.include? params[:product_id]
-      @carts[params[:product_id]] += Settings.cart.qty_add
+    product_key = params[:product_id]
+    @status = true
+    if @carts.include? product_key
+      @carts[product_key] += Settings.cart.qty_add
+      @message = t "cart.update_cart_up_qty"
+      @status = false
     else
-      @carts[params[:product_id]] = Settings.cart.qty_add
+      @carts[product_key] = Settings.cart.qty_add
+      @message = t "cart.add_cart_success"
     end
-    session[:carts] = @carts
-    flash[:success] = t "cart.add_cart_success"
-    redirect_to carts_path
+    @amount = amount_product @carts[product_key], @product.price
+    respond_to_data_cart
   end
 
   def update
-    @carts[params[:product_id]] = params[:quantity].to_i
-    total = total_price @carts, @products
-    amount = amount_product params[:quantity].to_i, params[:price].to_i
+    quantity = params[:quantity].to_i
+    if !quantity.positive?
+      msg = {status: "fail"}
+    elsif quantity > @product.quantity
+      msg = {status: "not_enough"}
+    else
+      @carts[params[:product_id]] = quantity
+      total = total_price @carts, @products
+      amount = amount_product quantity, params[:price].to_i
+      msg = {total: total, amount: amount}
+    end
     respond_to do |format|
-      format.json{render json: {total: total, amount: amount}}
+      format.json{render json: msg}
     end
   end
 
   def destroy
-    product_id = params[:id].to_s
-    if @carts.include? product_id
-      @carts.delete product_id
-      flash[:success] = t "cart.remove_success"
+    @product_id = params[:id].to_s
+    @status = true
+    if @carts.include? @product_id
+      @carts.delete @product_id
+      @message = t "cart.remove_success"
     else
-      flash[:danger] = t "cart.remove_fail"
+      @message = t "cart.remove_fail"
+      @status = false
     end
-    redirect_to carts_path
+    respond_to_data_cart
   end
 
   private
@@ -50,5 +61,14 @@ class CartsController < ApplicationController
 
   def load_products
     @products = Product.by_ids @carts.keys
+  end
+
+  def respond_to_data_cart
+    session[:carts] = @carts
+    @total = total_price @carts, load_products
+    respond_to do |format|
+      format.html{redirect_to root_path}
+      format.js {}
+    end
   end
 end

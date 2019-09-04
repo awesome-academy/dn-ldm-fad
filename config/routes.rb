@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get "/login", to: "sessions#new"
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
-    post "/cart/:product_id/add", to: "carts#add", as: "cart_add"
+    get "/cart/:product_id/add", to: "carts#add", as: "cart_add"
     get "/cart/update", to: "carts#update", as: "cart_update"
     get "/search", to: "static_pages#search"
     resources :carts, only: [:index, :destroy]

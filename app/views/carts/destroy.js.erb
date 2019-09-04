@@ -1,0 +1,16 @@
+<% if @status %>
+  $('.btn-remove-' + '<%= @product_id.to_i %>').parent().parent().html('')
+  $('.qty-cart').text('<%= @carts.size %>');
+  <% if @total.zero? %>
+    $("#cart-btn").html('');
+    $("#text-total").text(I18n.t("cart.cart_empty"));
+    $("#table-cart").html('');
+    $("#table-order").html('');
+  <% else %>
+    $('#text-total').html(I18n.t("cart.total_price") + '<span class="total_price-cart">'
+      + I18n.toCurrency('<%= @total %>') + '</span>');
+    $('.total_price').html(I18n.toCurrency('<%= @total %>'));
+  <% end %>
+<% end %>
+$("#message-cart").html('');
+alert('<%= @message %>')

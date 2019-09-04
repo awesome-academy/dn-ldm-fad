@@ -130,16 +130,50 @@
                 <span class="fa fa-angle-down" aria-hidden="true"></span>
               <% end %>
               <ul>
-                <li><%= link_to t("layout.header.food"),"#",
+                <li><%= link_to t("layout.header.drink"), "#",
                   class: "drop-text" %></li>
-                <li><%= link_to t("layout.header.drink"),"#",
+                <li><%= link_to t("layout.header.food"), "#",
                   class: "drop-text" %></li>
               </ul>
             </li>
             <li><%= link_to t("layout.header.contact"),contact_path %></li>
             <li>
               <%= link_to carts_path do %>
-                <span class="fa fa-shopping-cart"></span>
+                <div class="dropdown">
+                  <span class="qty-cart"><%= load_size_cart %></span>
+                  <span class="fa fa-shopping-cart dropbtn"></span>
+                  <div class="dropdown-content">
+                    <% if @products_cart.any? %>
+                      <table id="cart-content">
+                          <%= render partial: "layouts/cart_item",
+                            collection: @products_cart, as: :product %>
+                      </table>
+                      <div class="row">
+                        <span class="total-price" id="text-total">
+                          <%= t "cart.total_price" %>
+                          <span class="total_price">
+                            <%= number_to_currency total_price(@carts,
+                              @products_cart) %>
+                          </span>
+                        </span>
+                      </div>
+                      <div class="row" id="cart-btn">
+                        <%= link_to t("cart.see"), carts_path,
+                          class: "a-cart" %>
+                        <%= link_to t("cart.order"), new_order_path,
+                          class: "a-cart-c" %>
+                      </div>
+                    <% else %>
+                      <table id="cart-content"></table>
+                      <div class="row">
+                        <span class="total-price" id="text-total">
+                          <%= t "cart.cart_empty" %>
+                        </span>
+                      </div>
+                      <div class="row" id="cart-btn"></div>
+                    <% end %>
+                  </div>
+                </div>
               <% end %>
             </li>
           </ul>
