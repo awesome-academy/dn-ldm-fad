@@ -20,6 +20,9 @@ Rails.application.routes.draw do
       end
     end
     resources :products, only: [:index, :show] do
+      collection do
+        get :searchs, to: "products#search_product"
+      end
       member do
         post :rating, to: "products#rating_product"
         delete :destroy_rating, to: "products#destroy_rating"

@@ -153,11 +153,14 @@ vi:
     user_empty: "Không có tài khoản nào"
   menu:
     all_menu: "Tất cả menu"
-    tasty: "Ngon"
+    tasty: "Mới"
     our: "Thực Đơn"
     menu: "Của Chúng Tôi"
     product_not_found: "Không tìm thấy món"
     show_product: "Chi tiết sản phẩm"
+    product: "Món"
+    hot: "Được đặt hàng"
+    order: "nhiều nhất"
   cart:
     add: "Thêm vào giỏ"
     add_cart_success: "Thêm giỏ hàng thành công!"
@@ -262,6 +265,12 @@ vi:
     result:
       one: "%{count} kết quả tìm được với từ khóa"
       other: "%{count} kết quả tìm được với từ khóa"
+    price:
+      one: "Từ 0-100,000 đ"
+      two: "Từ 100,000-200,000 đ"
+      three: "Từ 200,000-300,000 đ"
+      four: "Trên 300,000 đ"
+      name: "Tìm kiếm theo giá"
   admin:
     dashboard: "Trang quản trị"
     logo: "FAD | TRANG QUẢN TRỊ"
@@ -307,6 +316,7 @@ vi:
       continue: "Tiếp tục"
       back: "Quay lại"
       you_sure: "Bạn có chắc chắn muốn xóa? Cảnh báo: Tất cả những đơn hàng của sản phẩm này này cũng bị xóa!"
+      img_erorr: "Ảnh phải là đuôi là JPG hoặc PNG"
     categories:
       name: "Quản lí danh mục"
       not_found: "Không tìm thấy danh mục"
@@ -391,3 +401,5 @@ vi:
     order:
       one: "Đơn hàng"
       other: "Đơn hàng"
+    product_type:
+      name: "Chủng loại"

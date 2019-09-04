@@ -45,13 +45,13 @@ class Admin::CategoriesController < Admin::AdminsController
   end
 
   def confirm_before_destroy
-    if @count.positive?
-      message = t "admin.categories.destroy_fail_count", count: @count
-    elsif @count.zero? && @waiting.positive?
-      message = t "admin.categories.waiting", count: @waiting
-    else
-      message = t "admin.categories.you_sure"
-    end
+    message = if @count.positive?
+                t "admin.categories.destroy_fail_count", count: @count
+              elsif @count.zero? && @waiting.positive?
+                t "admin.categories.waiting", count: @waiting
+              else
+                t "admin.categories.you_sure"
+              end
     respond_to do |format|
       format.json{render json: {message: message}}
     end

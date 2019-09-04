@@ -35,4 +35,9 @@ class ApplicationController < ActionController::Base
     flash[:danger] = t "users.not_admin"
     redirect_to root_url
   end
+
+  def load_category_product_type
+    @categories = Category.sort_by_name.pluck :id, :name
+    @product_types = ProductType.sort_by_name.pluck :id, :name
+  end
 end
