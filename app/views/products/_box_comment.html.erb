@@ -10,7 +10,7 @@
             <%= form_for(@rating, url: rating_product_path(@product.id)) do |f| %>
               <div class="row">
                 <div class="col-sm-2">
-                  <%= image_tag(checked_image_user,
+                  <%= image_tag(checked_image(@current_user, :user),
                     class: "img-circle img-rate") %>
                   <div class="review-block-name"><%= current_user.name %></div>
                 </div>
