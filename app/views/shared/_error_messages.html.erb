@@ -1,5 +1,5 @@
 <% if object.errors.any? %>
-  <div id="error_explanation a">
+  <div id="error_explanation a" id="flash_message">
     <div class="alert alert-danger a">
       <%= t "error_messages.form_error" %>
       <%= t("error_messages.error", count: object.errors.count) %>.
