@@ -9,7 +9,7 @@ Rails.application.routes.draw do
     get "/login", to: "sessions#new"
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
-    resources :users, only: [:show, :new, :create] do
+    resources :users, except: [:index, :edit, :destroy] do
       member do
         get :change_password
         patch :change_password, to: "users#update_change_password"

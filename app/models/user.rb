@@ -9,8 +9,8 @@ class User < ApplicationRecord
   validates :email, presence: true,
     length: {maximum: Settings.validates.maximum_email},
     format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
-  validates :password, presence: true,
-    length: {minimum: Settings.validates.minimum_password}, allow_nil: true
+  validates :password, presence: true, allow_nil: true,
+    length: {minimum: Settings.validates.minimum_password}
   before_save :downcase_email
   has_secure_password
   mount_uploader :picture, PictureUploader
