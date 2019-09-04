@@ -137,6 +137,7 @@ vi:
     old_password_wrong: "Mật khẩu cũ sai!"
     not_empty: "không thể trống"
     logged_out_user: "Bạn chưa đăng nhập!"
+    not_admin: "Bạn không có quyền admin!"
   menu:
     all_menu: "Tất cả menu"
     tasty: "Ngon"
@@ -248,3 +249,25 @@ vi:
     result:
       one: "%{count} kết quả tìm được với từ khóa"
       other: "%{count} kết quả tìm được với từ khóa"
+  admin:
+    dashboard: "Trang quản trị"
+    logo: "FAD | TRANG QUẢN TRỊ"
+    admin: "Người quản trị"
+    home: "Trang chủ"
+    products: "Quản lí sản phẩm"
+    categories: "Quản lí danh mục"
+    users: "Quản lí tài khoản"
+    orders: "Quản lí đơn hàng"
+    calendar: "Lịch"
+    product:
+      one: "Sản phẩm"
+      other: "Sản phẩm"
+    category:
+      one: "Danh mục"
+      other: "Danh mục"
+    user:
+      one: "Tài khoản"
+      other: "Tài khoản"
+    order:
+      one: "Đơn hàng"
+      other: "Đơn hàng"

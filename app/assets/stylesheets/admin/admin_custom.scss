@@ -1,0 +1,29 @@
+$color-white: #fff;
+
+div.si-co {
+  margin-top: -32px;
+  padding: 0;
+  padding-bottom: 23%;
+  div.div-avatar {
+    margin-left: 25%;
+    margin-top: -10px;
+    img {
+      width: 120px;
+    }
+  }
+  ul.menu-admin {
+    margin-top: -30px;
+  }
+}
+span.icon-admin {
+  font-size: 50px;
+  color: $color-white;
+}
+.div-index {
+  margin-top: -700px;
+  margin-left: 320px;
+}
+.panel-red {
+  background: red;
+  padding-right: 80px;
+}

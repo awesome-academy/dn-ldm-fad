@@ -7,4 +7,8 @@ module ApplicationHelper
       page_title + " | " + base_title
     end
   end
+
+  def checked_image object, name
+    object.picture? ? object.picture.url : "#{name.to_s}-default.jpg"
+  end
 end
