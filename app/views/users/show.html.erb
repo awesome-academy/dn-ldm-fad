@@ -1,0 +1,76 @@
+<% provide(:title, t("users.profile_me")) %>
+<% content_for :page_detail do %>
+  <%= render "layouts/page_detail" %>
+<% end %>
+<div class="div-profile">
+  <div class="container" >
+    <h3><%= t("users.profile_me").upcase %></h3>
+    <p><%= t "users.manager_user" %></p>
+    <div class="container emp-profile a">
+      <%= render "form_profile", user: @user do |f| %>
+        <div class="row mb">
+          <div class="col-md-4">
+              <%= f.label "users.name" %>
+          </div>
+          <div class="col-md-8">
+              <%= f.text_field :name, class: "pa" %>
+          </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <%= f.label "users.email" %>
+            </div>
+            <div class="col-md-8">
+                <span>
+                  <%= sub_email_user %>
+                </span> <%= link_to t("users.change"), "#" %>
+            </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4 ma">
+             <%= f.label t "users.sex" %>
+          </div>
+          <div class="col-md-8 ma">
+            <%= f.radio_button :sex, 0,
+              checked_sex_radio("male") %>
+            <span class="sex"><%= t("users.male") %></span>
+            <%= f.radio_button :sex, 1,
+              checked_sex_radio("female") %>
+            <span class="sex"><%= t("users.female") %></span>
+          </div>
+        </div>
+        <div class="row ma mb">
+          <div class="col-md-4">
+            <%= f.label t "users.birthday" %>
+          </div>
+          <div class="col-md-8">
+            <%= f.date_select :birthday, order: [:day, :month, :year],
+              start_year: load_start_year, end_year: load_end_year %>
+          </div>
+        </div>
+        <div class="row mb">
+          <div class="col-md-4">
+              <%= f.label t "users.phone" %>
+          </div>
+          <div class="col-md-8">
+            <span><%= sub_phone_user %></span>
+            <%= link_to t("users.change"), "#" %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <%= f.label t "users.address" %>
+          </div>
+          <div class="col-md-8" w>
+            <%= f.text_field :address,
+              placeholder: t("users.add_address"),
+              style: "padding:5px;width:100%"%>
+            <div >
+              <%= f.button t("users.save"), class: "btn-profile" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

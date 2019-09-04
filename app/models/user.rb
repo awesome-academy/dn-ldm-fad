@@ -13,6 +13,7 @@ class User < ApplicationRecord
     length: {minimum: Settings.validates.minimum_password}, allow_nil: true
   before_save :downcase_email
   has_secure_password
+  mount_uploader :picture, PictureUploader
 
   private
 
