@@ -1,7 +1,6 @@
 <div class="col-lg-3 col-md-6 mb">
   <div class="card border-0 med-blog">
     <div class="card-header p-0">
-      <a href="menu.html">
       <%= link_to nil, href: "#" do %>
         <%= image_tag("products/#{product.image}", class: "card-img-bottom") %>
       <% end %>
@@ -13,7 +12,8 @@
       <p><%= product.category_name %> </p>
       <p><%= number_to_currency(product.price) %></p>
       <p class="mt-3"><%= product.description %></p>
-      <%= link_to nil, href: "#", class: "btn button-w3ls mt-4 mb-3" do %>
+      <%= link_to nil, href: cart_add_path(product.id), method: :post,
+        class: "btn button-w3ls mt-4 mb-3" do %>
         <%= t("cart.add") %>
         <span class="fa fa-shopping-cart ml-1" aria-hidden="true"></span>
       <% end %>

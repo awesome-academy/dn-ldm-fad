@@ -3,7 +3,7 @@
 <div class="breadcrumb-agile bg-light py-2">
   <ol class="breadcrumb bg-light m-0">
     <li class="breadcrumb-item">
-      <a href="index.html"><%= t "layout.header.home" %></a>
+      <%= link_to t("layout.header.home"), root_path %>
     </li>
     <li class="breadcrumb-item active" aria-current="page">
       <%= yield(:title) %>

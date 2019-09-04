@@ -141,8 +141,23 @@ en:
     tasty: "Tasty"
     our: "Our"
     menu: "Menu"
+    product_not_found: "Product not found"
   cart:
     add: "Add Cart"
+    add_cart_success: "Add cart success!"
+    cart: "Shopping Cart"
+    product: "Product"
+    price: "Price"
+    quantity: "Quantity"
+    mount: "Amount"
+    total_price: "Total Price"
+    continue: "Continue See Product"
+    shipping: "Shipping"
+    free_ship: "Free Shipping"
+    checkout: "Checkout"
+    tam_tinh: "Provisional:"
+    cart_empty: "My shopping cart empty!"
+    you_sure: "Are you sure remove?"
   number:
     currency:
       format:

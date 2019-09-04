@@ -137,9 +137,11 @@
               </ul>
             </li>
             <li><%= link_to t("layout.header.contact"),contact_path %></li>
-           <!--  <li>
+            <li>
+              <%= link_to cart_index_path do %>
                 <span class="fa fa-shopping-cart"></span>
-            </li> -->
+              <% end %>
+            </li>
           </ul>
         </nav>
       </div>

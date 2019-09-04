@@ -13,3 +13,8 @@ sub_phone:
   num_sub: 8
 product:
   paginate: 8
+cart:
+  min_quantity: 1
+  max_quantity: 100
+cart:
+  qty_add: 1

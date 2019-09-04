@@ -5,6 +5,6 @@ class Product < ApplicationRecord
   has_many :ratings, dependent: :destroy
   delegate :name, to: :category, prefix: :category
   enum status: {hide: 0, display: 1}
-  scope :product_display, ->{where status: :display}
   scope :sort_desc, ->{order created_at: :desc}
+  scope :by_ids, ->(ids){where id: ids}
 end

@@ -5,6 +5,7 @@ $profile-btn: #ee4d2d;
 $color-ccc: #ccc;
 $bg-profile-img: #212529b8;
 $color-333: #333;
+$color-777: #777;
 $p-5px: 5px;
 $p-10px: 10px;
 $p-15px: 15px;
@@ -29,6 +30,8 @@ $color-a-profile-work: #495057;
 $p-profile-tab: #0062cc;
 $border-bot-profile-tab: #0062cc;
 $profile-edit-button: #6c757d;
+$green: #3CB371;
+$red: #fa2000;
 
 .pa {
   padding: $p-5px;
@@ -348,5 +351,56 @@ div.pagination {
   em, a, span {
     font-size: 15px;
     padding: 15px;
+  }
+}
+
+/* style cart  */
+.div-cart {
+  border-right:1px solid $color-ccc;
+  margin-bottom: 20px;
+  text-align: center;
+  .th-product {
+    width: 30%;
+    color: $color-777;
+  }
+  tbody {
+    img {
+      width:150px;
+    }
+    a.btn-remove {
+      color: red;
+      text-decoration: none;
+    }
+    .th1, .td1 {
+      width: 15%;
+      text-align: center;
+    }
+    .td-qty {
+      padding:0 30px;
+    }
+  }
+}
+a.btn-continue {
+    background: $color-white;
+    color: $red;
+    padding:10px 86px;
+    border: 2px solid $red;
+    font-weight: bold;
+    text-decoration: none;
+  }
+.table-cart {
+  color: $color-777;
+  .span-tam {
+    color: $color-000;
+  }
+  .td-checkout {
+    padding-top: 30px;
+    a {
+      background: $green;
+      color: $color-white;
+      padding: 10px 20px;
+      font-weight: bold;
+      text-decoration: none;
+    }
   }
 }

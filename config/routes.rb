@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     get "/login", to: "sessions#new"
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
+    get "/cart", to: "carts#index", as: "cart_index"
+    post "/cart/:product_id/add", to: "carts#add", as: "cart_add"
+
     resources :users, except: [:index, :edit, :destroy] do
       member do
         get :change_password
