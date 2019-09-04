@@ -14,3 +14,18 @@ $(document).ready(function() {
     if ($(window).width() <= 767) $('#sidebar-collapse').collapse('hide')
   });
 });
+
+function changeImgProduct(input){
+    if(input.files && input.files[0]){
+        var reader = new FileReader();
+        reader.onload = function(e){
+            $('#product_img').attr('src',e.target.result);
+        }
+        reader.readAsDataURL(input.files[0]);
+    }
+}
+$(document).ready(function() {
+    $('#product_img').click(function(){
+        $('#product_picture').click();
+    });
+});

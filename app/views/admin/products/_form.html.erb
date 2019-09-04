@@ -1,0 +1,72 @@
+<%= form_for [:admin, @product], enctype: "multipart/form-data" do |f| %>
+  <div class="col-sm-8">
+    <div class="form-group">
+      <%= f.label t "admin.products.name_pro" %>
+      <span class="text-require">*</span>
+      <%= f.text_field :name, class: "form-control",
+        placeholder: t("admin.products.name_pro") %>
+      <%= display_error @product, :name, t("admin.products.name_pro") %>
+    </div>
+    <div class="form-group">
+      <%= f.label t "admin.products.price" %>
+      <span class="text-require">*</span>
+      <%= f.number_field :price, class: "form-control",
+        placeholder: t("admin.products.price") %>
+      <%= display_error @product, :price, t("admin.products.price") %>
+    </div>
+    <div class="form-group">
+      <%= f.label t "admin.products.quantity" %>
+      <span class="text-require">*</span>
+      <%= f.number_field :quantity, class: "form-control",
+        placeholder: t("admin.products.quantity") %>
+      <%= display_error @product, :quantity, t("admin.products.quantity") %>
+    </div>
+    <div class="form-group">
+      <%= f.label t "admin.products.category" %>
+      <span class="text-require">*</span><br>
+      <%= f.select :category_id, select_c(@categorys),
+        {include_blank: false}, {class: "form-control se",
+        style: "height:34px;"} %>
+      <%= display_error @product, :category_id, t("admin.products.category") %>
+    </div>
+    <div class="form-group g">
+      <%= f.label t "admin.products.type" %>
+      <span class="text-require">*</span><br>
+      <%= f.select :product_type_id, select_c(@product_types),
+        {include_blank: false}, {class: "form-control se",
+        style: "height:34px;"} %>
+      <%= display_error @product, :product_type_id, t("admin.products.type") %>
+    </div>
+    <div class="form-group g">
+      <%= f.label t "admin.products.status" %>
+      <%= f.radio_button :status, 0, @product.hide? ? {checked: true} : {} %>
+      <span class="sex"><%= t("admin.products.hide") %></span>
+      <%= f.radio_button :status, 1, @product.display? ? {checked: true} : {} %>
+      <span class="sex"><%= t("admin.products.display") %></span>
+    </div>
+    <div class="form-group">
+      <%= f.label t "admin.products.description" %><br>
+      <%= f.text_area :description,
+        placeholder: t("admin.categories.description"),
+        cols: Settings.product.area.cols,
+        rows: Settings.product.area.rows %>
+    </div>
+    <div class="form-group">
+      <%= f.button yield(:button_text), class: "btn btn-success" %>
+      <%= link_to t("admin.products.back"), admin_products_path,
+        class: "btn btn-danger" %>
+    </div>
+  </div>
+  <div class="col-sm-4">
+    <div class="profile-img">
+      <%= f.label t "admin.products.image" %><br>
+      <%= image_tag(checked_image(@product, :product), id: :product_img,
+        class: "avatar img-thumbnail") %>
+        <div class="file btn btn-lg btn-primary">
+            <%= t "admin.products.change_image" %>
+            <%= f.file_field :picture, onchange: "changeImgProduct(this)" %>
+        </div>
+      <%= display_error @product, :picture, t("admin.products.img_size") %>
+      </div>
+  </div>
+<% end %>

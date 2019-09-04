@@ -39,7 +39,8 @@
     </nav>
     <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar a  si-co">
       <div class="div-avatar">
-        <%= image_tag(checked_image_user, class: "img-circle") %>
+        <%= image_tag(checked_image(@current_user, :user),
+          class: "img-circle") %>
         <div class="review-block-name">
           <%= link_to "#" do %>
             <%= t "admin.admin" %>: <%= current_user.name %>
@@ -60,9 +61,9 @@
           <% end %>
         </li>
         <li class="tab-menu">
-          <%= link_to "#" do %>
+          <%= link_to admin_products_path do %>
             <span class="glyphicon glyphicon-flag"></span>
-            <%= t "admin.products" %>
+            <%= t "admin.products.name" %>
           <% end %>
         </li>
         <li class="tab-menu">

@@ -1,0 +1,24 @@
+<tr>
+  <td><%= product.id %></td>
+  <td><%= product.name %></td>
+  <td><%= image_tag(checked_image product, :product) %></td>
+  <td><%= product.price %></td>
+  <td><span class="qty-span"><%= product.quantity %></span></td>
+  <td><%= check_description product.description %></td>
+  <td><%= product.category_name %></td>
+  <td><%= product.product_type_name %></td>
+  <td>
+      <span class="btn-<%= product.hide? ? "hide" : "info" %> btn-role">
+        <%= t "admin.products.#{product.status}" %>
+      </span>
+  </td>
+  <td>
+    <%= link_to edit_admin_product_path(product.id) do %>
+      <span class="btn glyphicon glyphicon-pencil text-success"></span>
+    <% end %><br><br>
+    <%= link_to admin_product_path(product.id), method: :delete,
+      data: {confirm: t("cart.you_sure")} do %>
+      <span class="glyphicon glyphicon-trash text-danger"></span>
+    <% end %>
+  </td>
+</tr>
