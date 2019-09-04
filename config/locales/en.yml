@@ -242,3 +242,9 @@ en:
     star:
       one: "%{count} star"
       other: "%{count} stars"
+  search:
+    search: "Search"
+    empty: "No matching items found"
+    result:
+      one: "%{count} result found with keyword"
+      other: "%{count} results found with keyword"

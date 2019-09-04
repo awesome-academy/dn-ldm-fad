@@ -19,10 +19,9 @@
               </p>
             </div>
             <div class="col-xl-6">
-                <%= form_tag("#", method: :get) do %>
-                  <%= search_field_tag "search", nil, class: "form-control",
-                    placeholder: t("layout.header.search"),
-                    style: "font-size:15px" %>
+                <%= form_tag(search_path, method: :get) do %>
+                  <%= search_field_tag :search, nil, class: "form-control",
+                    placeholder: t("layout.header.search") %>
                 <% end %>
             </div>
           </div>
