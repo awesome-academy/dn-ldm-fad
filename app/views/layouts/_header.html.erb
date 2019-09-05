@@ -125,8 +125,8 @@
             <li><%= link_to t("layout.header.home"), home_path %></li>
             <li><%= link_to t("layout.header.about"),about_path %></li>
             <li>
-              <%= link_to t("layout.header.product"), href: "#pages" do %>
-                <%= t("layout.header.product") %>
+              <%= link_to t("layout.header.product"), href: products_path do %>
+                <%= t("layout.header.menu") %>
                 <span class="fa fa-angle-down" aria-hidden="true"></span>
               <% end %>
               <ul>

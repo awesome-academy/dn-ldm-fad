@@ -11,3 +11,18 @@
 <% content_for :middle do %>
   <%= render "layouts/middle" %>
 <% end %>
+<% content_for :product do %>
+  <section class="blog_w3ls py-5">
+    <div class="container pb-xl-5 pb-lg-3">
+      <div class="title-section text-center mb-md-5 mb-4">
+        <p class="w3ls-title-sub"><%= t "menu.tasty" %></p>
+        <h3 class="w3ls-title"><%= t "menu.our" %>
+        <span><%= t "menu.menu" %></span></h3>
+      </div>
+      <div class="row">
+        <%= render partial: "products/product", collection: @products %>
+      </div>
+      <%= will_paginate @products %>
+    </div>
+  </section>
+<% end %>

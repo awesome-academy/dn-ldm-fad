@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'products/index'
+
   scope "(:locale)", locale: /en|vi/ do
     root "static_pages#home"
 
@@ -15,5 +17,6 @@ Rails.application.routes.draw do
         patch :change_password, to: "users#update_change_password"
       end
     end
+    resources :products, only: :index
   end
 end

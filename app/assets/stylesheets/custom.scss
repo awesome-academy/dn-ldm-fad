@@ -344,3 +344,9 @@ $profile-edit-button: #6c757d;
   display: inline-block;
   padding: 15px;
 }
+div.pagination {
+  em, a, span {
+    font-size: 15px;
+    padding: 15px;
+  }
+}

@@ -24,6 +24,7 @@ en:
       contact: "Contact us"
       food: "Food"
       drink: "Drink"
+      menu: "Menu"
     footer:
       text_p1: "Sed ut perspiciatis unde omnis iste natus errorhjhsit lupt atem accursit lupt atem accu dfdsa ntium doloremque laudan tium accu santium dolore."
       follow_as: "Follow as"
@@ -135,3 +136,18 @@ en:
     change_password_fail: "Change password fail!"
     old_password_wrong: "Old password wrong!"
     not_empty: "not empty!"
+  menu:
+    all_menu: "All menu"
+    tasty: "Tasty"
+    our: "Our"
+    menu: "Menu"
+  cart:
+    add: "Add Cart"
+  number:
+    currency:
+      format:
+        format: "%u%n"
+        unit: "$"
+        separator: '.'
+        delimiter: ','
+        precision: 3
