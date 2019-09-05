@@ -12,7 +12,6 @@ Rails.application.routes.draw do
     post "/cart/:product_id/add", to: "carts#add", as: "cart_add"
     get "/cart/update", to: "carts#update", as: "cart_update"
     resources :carts, only: [:index, :destroy]
-
     resources :users, except: [:index, :edit, :destroy] do
       member do
         get :change_password
@@ -20,5 +19,6 @@ Rails.application.routes.draw do
       end
     end
     resources :products, only: :index
+    resources :orders, only: [:new, :create]
   end
 end

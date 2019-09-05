@@ -1,0 +1,33 @@
+<%= form_for(@orders) do |f| %>
+  <div class="form-group">
+    <%= f.label t "order.customer" %>:<span class="text-require">*</span>
+    <%= f.text_field :customer, value: @current_user.name,
+      class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label t "order.address" %>:<span class="text-require">*</span>
+    <%= f.text_field :address, value: @current_user.address,
+      class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label t "order.phone" %>:<span class="text-require">*</span>
+    <%= f.text_field :phone, value: @current_user.phone,
+      class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label t "order.payment" %>:<span class="text-require">*</span>
+    <%= radio_button_tag :type_payment, 0, checked: true %>
+    <span><%= t("order.cod") %></span>
+    <%= radio_button_tag :type_payment, 1 %>
+    <span><%= t("order.atm") %></span>
+  </div>
+  <div class="form-group">
+    <%= f.label t "order.note" %>:
+    <%= f.text_area :description, cols: 72, rows: 2 %>
+    <%= f.hidden_field :total_price, value: @total_price %>
+  </div>
+  <div class="form-group">
+    <%= link_to t("order.back_to_cart"), carts_path %>
+    <%= f.button t("order.btn_order"), class: "btn btnkout a" %>
+  </div>
+<% end %>

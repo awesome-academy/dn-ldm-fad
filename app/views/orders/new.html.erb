@@ -1,0 +1,36 @@
+<% provide(:title, t("order.order_info")) %>
+<% content_for :page_detail do %>
+  <%= render "layouts/breadcrum" %>
+<% end %>
+<% content_for :checkout do %>
+<div class="container-fluid a">
+  <div class="row">
+    <div class="col-sm-6">
+      <div style="text-align: center;">
+        <h2><%= t("order.order_info").upcase %></h2>
+      </div>
+      <div class="divkout2">
+        <%= link_to "#" do %>
+          <%= image_tag(checked_image_user) %>
+        <% end %>
+        <span><%= @current_user.name %></span>
+        <%= link_to t("users.logout"), logout_path %>
+        <%= render "form" %>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="divkout1">
+        <div class="row divrow1">
+            <%= render partial: "item", collection: @products %>
+          <div class="col-sm-12 divtong">
+            <span class="spantong"><%= t "cart.total_price" %></span>
+            <span class="spantongtien">
+              <%= number_to_currency @total_price %>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<% end %>

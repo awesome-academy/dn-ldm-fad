@@ -136,6 +136,7 @@ en:
     change_password_fail: "Change password fail!"
     old_password_wrong: "Old password wrong!"
     not_empty: "not empty!"
+    logged_out_user: "You are not logged in"
   menu:
     all_menu: "All menu"
     tasty: "Tasty"
@@ -149,7 +150,7 @@ en:
     product: "Product"
     price: "Price"
     quantity: "Quantity"
-    mount: "Amount"
+    amount: "Amount"
     total_price: "Total Price"
     continue: "Continue See Product"
     shipping: "Shipping"
@@ -171,3 +172,25 @@ en:
         separator: '.'
         delimiter: ','
         precision: 3
+  order:
+    order_info: "Information orders user"
+    customer: "Customer Name"
+    address: "Address"
+    phone: "Number phone"
+    note: "Note"
+    payment: "Payment method"
+    cod: "Ship COD"
+    atm: "ATM"
+    back_to_cart: "< BACK TO CART"
+    btn_order: "ORDER"
+    order_success: "Order success!"
+    order_fail: "Order fail!"
+    name: "Name"
+  mail:
+    order:
+      subject: "[FAD] Email order confirm"
+      h3: "You have successfully placed an order!"
+      p1: "Your bill has been sent to the Email Address found in our Customer Information section"
+      p2: "Products will be shipped after 3 to 4 days from the time of order"
+      p3: "Thank you for your purchase of our website"
+      bill: "Reciept"
