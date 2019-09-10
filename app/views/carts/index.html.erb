@@ -1,8 +1,9 @@
 <% provide(:title, t("cart.cart")) %>
 <% content_for :page_detail do %>
-  <%= render "layouts/page_detail" %>
+  <%= render "layouts/breadcrum" %>
 <% end %>
 <% if @products.any? %>
+<div id="message-cart"></div>
   <div class="row a">
     <div class="col-sm-9 div-cart">
       <table class="table">
@@ -31,7 +32,10 @@
           <tr>
             <td width="14%"><span class=""><%= t "cart.tam_tinh" %></span>
               <span class="pull-right span-tam">
-                <b><%= number_to_currency(@total_price) %></b></span>
+                <b class="total_price">
+                  <%= number_to_currency @total_price %>
+                </b>
+              </span>
             </td>
           </tr>
           <tr>
@@ -42,7 +46,9 @@
           <tr>
             <td width="14%"><span class=""><%= t "cart.total_price" %></span>
               <span class="pull-right span-tam">
-                <b><%= number_to_currency(@total_price) %></b>
+                <b class="total_price">
+                  <%= number_to_currency @total_price %>
+                </b>
               </span>
             </td>
           </tr>

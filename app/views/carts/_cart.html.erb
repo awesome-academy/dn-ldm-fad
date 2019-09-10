@@ -1,8 +1,8 @@
 <tr>
   <td><br><br>
-    <%= link_to nil, "#", method: :delete,
+    <%= link_to "",cart_path(cart.id), method: :delete,
       data: {confirm: t("cart.you_sure")},
-      class: "glyphicon glyphicon-remove btn-remove"  %>
+      class: "glyphicon glyphicon-remove btn-remove" %>
   </td>
   <td>
     <%= link_to "#" do %>
@@ -12,17 +12,18 @@
   <td><span><br><br><%= cart.name %></span></td>
   <td class="td1 spanprice1">
     <br><span class="spansp">
-      <br><%= number_to_currency(cart.price) %>
+      <br><%= number_to_currency cart.price %>
     </span>
   </td>
   <td class="td1 td-qty">
     <div class="form-group">
       <br><br>
       <%= number_field_tag :quantity, @carts[cart.id.to_s],
-        min: Settings.cart.min_quantity, max: Settings.cart.max_quantity  %>
+        min: Settings.cart.min_quantity, max: Settings.cart.max_quantity,
+        class: "quantityCart", dataId: cart.id, dataPrice: cart.price  %>
     </div>
   </td>
   <td class="td1 spanprice1"><br><br><span class="spansp">
-   <%= number_to_currency(amount_product(@carts[cart.id.to_s], cart.price)) %>
+   <%= number_to_currency(amount_product @carts[cart.id.to_s], cart.price) %>
   </span></td>
 </tr>
