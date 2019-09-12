@@ -54,13 +54,14 @@
           </tr>
           <tr>
             <td class="td-checkout">
-              <%= link_to t("cart.checkout"), "#" %>
+              <%= link_to t("cart.checkout"), new_order_path %>
             </td>
           </tr>
         </thead>
       </table>
     </div>
   </div>
+</div>
 <% else %>
   <%= render "cart_empty" %>
 <% end %>

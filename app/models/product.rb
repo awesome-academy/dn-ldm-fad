@@ -7,4 +7,5 @@ class Product < ApplicationRecord
   enum status: {hide: 0, display: 1}
   scope :sort_desc, ->{order created_at: :desc}
   scope :by_ids, ->(ids){where id: ids}
+  scope :get_price, ->(id){where(id: id).pluck(:price).first}
 end

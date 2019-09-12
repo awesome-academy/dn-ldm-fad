@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    h3{
+      color: #FFAF02;
+    }
+    table{
+      border-collapse: collapse;
+      text-align: center;
+      padding: 2px;
+    }
+    .text-td{
+      color: #ed4e4e;
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <h3><%= t "mail.order.h3" %></h3>
+    <p><%= t "mail.order.p1" %></p>
+    <p><%= t "mail.order.p2" %></p>
+    <p><%= t "mail.order.p3" %></p>
+  </div>
+  <div>
+    <h3><%= t "order.order_info" %>:</h3>
+    <p>
+      <strong><%= t "order.name" %>:</strong> <%= @user.name %>
+    </p>
+    <p>
+      <strong><%= t "users.email" %>:</strong> <%= @user.email %>
+    </p>
+    <p>
+      <strong><%= t "order.customer" %>:</strong> <%= @order.customer %>
+    </p>
+    <p>
+      <strong><%= t "order.phone" %>:</strong> <%= @order.phone %>
+    </p>
+    <p>
+      <strong><%= t "order.address" %>:</strong> <%= @order.address %>
+    </p>
+    <p>
+      <strong><%= t "order.payment" %>:</strong>
+      <%= @order.payment.type_payment %>
+    </p>
+  </div>
+  <div>
+    <h3><%= t "mail.order.bill" %></h3>
+    <table border="1">
+      <tr style="">
+        <th><%= t "cart.product" %></th>
+        <th><%= t "cart.price" %></th>
+        <th><%= t "cart.quantity" %></th>
+        <th><%= t "cart.amount" %></th>
+      </tr>
+      <%= render partial: "product", collection: @products %>
+      <tr>
+        <td><%= t "cart.total_price" %>:</td>
+        <td colspan="4" align="right" class="text-td">
+          <%= number_to_currency @total_price %>
+        </td>
+      </tr>
+    </table>
+  </div>
+</body>
+</html>

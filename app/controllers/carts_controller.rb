@@ -51,9 +51,4 @@ class CartsController < ApplicationController
   def load_products
     @products = Product.by_ids @carts.keys
   end
-
-  def load_cart_session
-    session[:carts] ||= {}
-    @carts = session[:carts]
-  end
 end

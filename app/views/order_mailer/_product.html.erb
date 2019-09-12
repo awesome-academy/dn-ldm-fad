@@ -1,0 +1,8 @@
+<tr>
+  <td><%= product.name %></td>
+  <td class="text-td"><%= number_to_currency product.price %></td>
+  <td><%= @carts[product.id.to_s] %></td>
+  <td class="text-td">
+    <%= number_to_currency @carts[product.id.to_s]*product.price %>
+  </td>
+</tr>

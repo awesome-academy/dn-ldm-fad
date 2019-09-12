@@ -136,6 +136,7 @@ vi:
     change_password_fail: "Đổi mật khẩu thaất bại!"
     old_password_wrong: "Mật khẩu cũ sai!"
     not_empty: "không thể trống"
+    logged_out_user: "Bạn chưa đăng nhập!"
   menu:
     all_menu: "Tất cả menu"
     tasty: "Ngon"
@@ -149,7 +150,7 @@ vi:
     product: "Món"
     price: "Đơn giá"
     quantity: "Số lượng"
-    mount: "Số tiền"
+    amount: "Số tiền"
     total_price: "Tổng cộng"
     continue: "TIẾP TỤC XEM SẢN PHẨM"
     shipping: "Giao hàng"
@@ -171,3 +172,25 @@ vi:
         separator: '.'
         delimiter: ','
         precision: 0
+  order:
+    order_info: "Thông tin xác nhận đơn hàng"
+    customer: "Tên người nhận"
+    address: "Địa chỉ nhận hàng"
+    phone: "Số điện thoại người nhận"
+    note: "Ghí chú"
+    payment: "Hình thức thanh toán"
+    cod: "Nhận hàng thanh toán(COD)"
+    atm: "Chuyển khoản(ATM)"
+    back_to_cart: "< QUAY LẠI GIỎ HÀNG"
+    btn_order: "ĐẶT HÀNG"
+    order_success: "Hóa đơn của bạn đã được chuyển đến địa chi email có trong phần thông tin khách hàng của chúng tôi. Sản phẩm sẽ được chuyển đến sau từ 3-5 ngày tính từ thời điểm đặt hàng. Cảm ơn bạn chọn mua sản phẩm của chúng tôi, chúng tôi sẽ liên lạc lại với bạn trong thời gian sớm nhất! Trân trọng!!"
+    order_fail: "Đặt hàng không thành công!"
+    name: "Khách hàng"
+  mail:
+    order:
+      subject: "[FAD] Email xác nhận đặt hàng"
+      h3: "Quý khách đã đặt hàng thành công!"
+      p1: "Hóa đơn của quý khách đã được chuyển đến Địa Chỉ Email có trong phần Thông tin khách hàng của chúng tôi"
+      p2: "Sản Phẩm sẽ được chuyển đến sau 3 đến 4 ngày tính từ thời điểm đặt hàng"
+      p3: "Cảm ơn quý khách đã mua hàng tại website của chúng tôi"
+      bill: "Hóa đơn mua hàng"

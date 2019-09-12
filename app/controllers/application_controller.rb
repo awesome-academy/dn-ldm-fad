@@ -17,4 +17,16 @@ class ApplicationController < ActionController::Base
   def check_logged_in
     redirect_to root_path if logged_in?
   end
+
+  def check_logged_out
+    return if logged_in?
+    store_location
+    flash[:warning] = t "users.logged_out_user"
+    redirect_to login_url
+  end
+
+  def load_cart_session
+    session[:carts] ||= {}
+    @carts = session[:carts]
+  end
 end
