@@ -1,0 +1,89 @@
+<% provide(:title, t("menu.show_product")) %>
+<% content_for :page_detail do %>
+  <%= render "layouts/page_detail" %>
+<% end %>
+<div class="cont span_2_of_3">
+  <div class="col-lg-5">
+    <div class="mySlides">
+      <%= image_tag("products/#{@product.image}") %>
+    </div>
+  </div>
+  <div class="col-lg-5">
+    <h2 class="m_3 product_name"><%= @product.name %></h2>
+    <div class="price_single a">
+        <br><span class="reducedfrom"><%= t "detail.price" %>:
+          <%= number_to_currency @product.price %>
+        </span><br><br>
+        <span><%= @product.category_name %></span><br><br>
+        <span><%= t "detail.status" %>:
+          <% if @product.quantity > Settings.cart.disabled %>
+            <%= t("detail.stock") %>
+          <% else %>
+            <%= t("detail.ostock") %>
+          <% end %>
+        </span>
+    </div>
+    <br><br>
+    <div>
+      <% if @product.quantity > Settings.cart.disabled %>
+        <%= link_to nil,href: cart_add_path(@product.id), method: :post,
+          class: "btn btnaddcart btn-success btn-addcart a" do %>
+          <span class="glyphicon glyphicon-shopping-cart"></span>
+          <%= t "cart.add" %>
+        <% end %>
+      <% else %>
+        <%= link_to nil, disabled: "disabled",
+        class: "btn btnaddcart btn-success btn-addcart a" do %>
+          <span class="glyphicon glyphicon-shopping-cart"></span>
+          <%= t "detail.disabled_cart" %>
+        <% end %>
+      <% end %>
+    </div>
+    <br><br><p class="m_desc"><%= @product.description %>.</p>
+  </div>
+  <div class="col-lg-2">
+    <table class="table tabletag">
+      <tr>
+        <td colspan="2" class="td-info">
+          <p id="ptag"><%= t "detail.text_1" %></p>
+        </td>
+      </tr>
+      <tr>
+        <td><br><%= image_tag("detail/giaohang1.png") %></td>
+        <td>
+          <p><b><%= t "detail.fast_ship" %></b>
+          <br><%= t "detail.text_2" %></p>
+        </td>
+      </tr>
+      <tr>
+        <td><br><%= image_tag("detail/thanhtoan.png") %></td>
+        <td>
+          <p><b><%= t "detail.checkout" %></b>
+          <br><%= t "detail.text_3" %></p>
+        </td>
+      </tr>
+      <tr>
+        <td><br><%= image_tag("detail/hotro.png") %></td>
+        <td>
+          <p><b><%= t "detail.sup" %></b>
+          <br><%= t "detail.text_4" %></p>
+        </td>
+      </tr>
+    </table>
+  </div>
+  <div class="clear"></div>
+  </div>
+  <div class="toogle">
+    <h3 class="m_3"><%= t "detail.description" %></h3>
+    <p class="m_text">[<%= @product.name %>]</p>
+    <p><%= @product.description %></p>
+    <p class="m_text">-----------------------------------------</p>
+    <p class="m_text"><%= t "detail.p1" %></p>
+    <p class="m_text"><%= t "detail.p2" %></p>
+    <p class="m_text"><%= t "detail.p3" %></p>
+    <p class="m_text"><%= t "detail.p4" %></p>
+  </div>
+  <div class="toogle">
+    </div>
+  <div class="clear"></div>
+</div>

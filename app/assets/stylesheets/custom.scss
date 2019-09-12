@@ -14,6 +14,8 @@ $mt-15px: 15px;
 $fs-15px: 15px;
 $fs-20px: 20px;
 $fs-12px: 12px;
+$fs-22px: 22px;
+$fs-45px: 45px;
 $mr-20px: 20px;
 $mr-10px: 10px;
 $ml-5px: 5px;
@@ -39,6 +41,7 @@ $profile-p: #818182;
 $color-F5: #F5F5F5;
 $color-73: #737373;
 $btn-kout: #338dbc;
+$color-ffa200: #ffa200;
 
 .pa {
   padding: $p-5px;
@@ -380,9 +383,9 @@ div.pagination {
 }
 a.btn-continue {
     background: $color-white;
-    color: $red;
+    color: $color-ffa200;
     padding:10px 86px;
-    border: 2px solid $red;
+    border: 2px solid $color-ffa200;
     font-weight: bold;
     text-decoration: none;
   }
@@ -430,7 +433,7 @@ a.btn-continue {
   img.imgcheckout{
     width: 18%;
     border-radius: 10px;
-    border: 1px solid #ccc;
+    border: 1px solid $color-ccc;
     position: relative;
   }
   span.koutsl{
@@ -463,12 +466,48 @@ a.btn-continue {
   padding: 20px 0;
   .spantong {
     color: $color-000;
-    font-size: 22px;
+    font-size: $fs-22px;
   }
   .spantongtien {
     color: $color-000;
-    font-size: 22px;
+    font-size: $fs-22px;
     float: right;
   }
 }
-
+/* detail product */
+.btn-addcart {
+  margin-right: 10px;
+  padding: 10px;
+  border-radius: 0;
+  span {
+    margin-right: 10px;
+  }
+}
+.td-info {
+  background: rgba(0,0,0,0.1);
+}
+.tabletag {
+ tr {
+    td {
+      text-align: center;
+      p {
+        font-size: $fs-12px;
+        }
+      }
+  }
+}
+#ptag{
+  color: $color-ffa200;
+  font-size: $fs-15px;
+}
+.mySlides {
+  img {
+    width: 100%;
+  }
+}
+.menu-style {
+  background: $color-eee;
+}
+.product_name {
+  font-size: $fs-45px;
+}

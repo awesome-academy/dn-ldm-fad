@@ -24,7 +24,6 @@
     <%= yield :checkout %>
     <div class="container">
       <%= yield %>
-      <%= debug(params) if Rails.env.development? %>
     </div>
     <%= yield :middle %>
     <%= yield :chef %>

@@ -2,13 +2,13 @@
   <div class="card border-0 med-blog">
     <div class="card-header p-0">
       <a href="menu.html">
-      <%= link_to nil, href: "#" do %>
+      <%= link_to nil, href: product_path(product.id) do %>
         <%= image_tag("products/#{product.image}", class: "card-img-bottom") %>
       <% end %>
     </div>
     <div class="card-body border border-top-0">
       <h5 class="blog-title card-title m-0">
-        <%= link_to product.name, "#" %>
+        <%= link_to product.name, product_path(product.id) %>
       </h5>
       <p><%= product.category_name %> </p>
       <p><%= number_to_currency(product.price) %></p>

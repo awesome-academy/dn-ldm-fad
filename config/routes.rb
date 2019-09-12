@@ -18,7 +18,7 @@ Rails.application.routes.draw do
         patch :change_password, to: "users#update_change_password"
       end
     end
-    resources :products, only: :index
+    resources :products, only: [:index, :show]
     resources :orders, only: [:new, :create]
   end
 end

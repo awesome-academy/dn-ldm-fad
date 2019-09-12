@@ -5,7 +5,7 @@
       class: "glyphicon glyphicon-remove btn-remove" %>
   </td>
   <td>
-    <%= link_to "#" do %>
+    <%= link_to product_path(cart.id) do %>
       <%= image_tag "products/#{cart.image}"%>
     <% end %>
   </td>

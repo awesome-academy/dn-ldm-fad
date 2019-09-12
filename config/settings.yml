@@ -19,3 +19,4 @@ cart:
   min_quantity: 1
   max_quantity: 100
   qty_add: 1
+  disabled: 0
