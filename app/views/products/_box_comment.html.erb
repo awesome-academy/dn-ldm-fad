@@ -1,0 +1,46 @@
+<div class="row div-box-rate">
+  <div class="col-sm-7">
+    <% if logged_in? %>
+      <div class="text-left">
+        <%= button_tag t("detail.write"), class: "btn btn-box-rate a",
+          id: "open-review-box" %>
+      </div>
+      <div class="row box-comment" id="post-review-box">
+        <div class="col-md-12">
+            <%= form_for(@rating, url: rating_product_path(@product.id)) do |f| %>
+              <div class="row">
+                <div class="col-sm-2">
+                  <%= image_tag(checked_image_user,
+                    class: "img-circle img-rate") %>
+                  <div class="review-block-name"><%= current_user.name %></div>
+                </div>
+                <div class="col-sm-10">
+                    <%= f.hidden_field :star, id: "ratings-hidden" %>
+                    <%= f.hidden_field :product_id, value: @product.id %>
+                    <%= f.text_area :comment,
+                      placeholder: t("detail.enter_comment"),
+                      cols: Settings.comment.cols, rows: Settings.comment.rows
+                    %>
+                    <div class="review-block-name">
+                      <%= link_to t("detail.not_me"), "#"%>
+                      <%= t "detail.you" %>
+                    </div>
+                </div>
+              </div>
+              <div class="text-right">
+                  <div class="stars starrr" data-rating="0"></div>
+                  <%= link_to "#", class: "btn btn-default btn-close",
+                    id: "close-review-box" do %>
+                    <span class="glyphicon glyphicon-remove"></span>
+                    <%= t "detail.cancel" %>
+                  <% end %>
+                  <%= f.button t("detail.comment"), class: "btn-comment" %>
+              </div>
+            <% end %>
+        </div>
+      </div>
+      <% else %>
+        <%= link_to t("users.login"), login_path %> <%= t "detail.write_now" %>
+      <% end %>
+  </div>
+</div>

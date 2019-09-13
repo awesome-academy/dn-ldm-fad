@@ -1,0 +1,99 @@
+<h1 class="h-rating"><%= t "detail.rating" %></h1>
+<hr>
+  <div class="col-sm-12 a div-rating">
+    <div class="row">
+      <div class="col-sm-3">
+        <div class="rating-block">
+          <h2 class="bold padding-bottom-7">
+            <%= @avg_star %><small>/ 5</small>
+          </h2>
+          <% 5.times do %>
+            <span class="glyphicon glyphicon-star s-star">
+            </span>
+          <% end %>
+          <br><p><%= t "detail.review", count: @sum_star %></p>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="pull-left">
+          <div class="pull-left div-s">
+            <div class="ss">5 <span class="glyphicon glyphicon-star"></span>
+            </div>
+          </div>
+          <div class="pull-left pl">
+            <div class="progress s-space">
+              <div class="progress-bar-success five-star">
+              </div>
+            </div>
+          </div>
+          <div class="pull-right count-star"><%= @five_star %></div>
+        </div>
+        <div class="pull-left">
+          <div class="pull-left div-s">
+            <div class="ss">4 <span class="glyphicon glyphicon-star"></span>
+            </div>
+          </div>
+          <div class="pull-left pl">
+            <div class="progress s-space">
+              <div class="progress-bar-warning four-star">
+              </div>
+            </div>
+          </div>
+          <div class="pull-right count-star"><%= @four_star %></div>
+        </div>
+        <div class="pull-left">
+          <div class="pull-left div-s">
+            <div class="ss">3 <span class="glyphicon glyphicon-star"></span>
+            </div>
+          </div>
+          <div class="pull-left pl">
+            <div class="progress s-space">
+              <div class="progress-bar-info three-star">
+              </div>
+            </div>
+          </div>
+          <div class="pull-right count-star"><%= @three_star %></div>
+        </div>
+        <div class="pull-left">
+          <div class="pull-left div-s">
+            <div class="ss">2 <span class="glyphicon glyphicon-star"></span>
+            </div>
+          </div>
+          <div class="pull-left pl">
+            <div class="progress s-space">
+              <div class="progress-bar two-star">
+              </div>
+            </div>
+          </div>
+          <div class="pull-right count-star"><%= @two_star %></div>
+        </div>
+        <div class="pull-left">
+          <div class="pull-left div-s">
+            <div class="ss">1 <span class="glyphicon glyphicon-star"></span>
+            </div>
+          </div>
+          <div class="pull-left pl">
+            <div class="progress s-space">
+              <div class="progress-bar-danger one-star">
+              </div>
+            </div>
+          </div>
+          <div class="pull-right count-star"><%= @one_star %></div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-7">
+        <hr/>
+        <div class="review-block">
+          <% if @ratings.any? %>
+            <%= render partial: "comment", collection: @ratings %>
+          <% else %>
+            <p><%= t "detail.first_rating" %></p>
+          <% end %>
+          <hr/>
+        </div>
+      </div>
+    </div>
+  <%= render "box_comment" %>
+</div>

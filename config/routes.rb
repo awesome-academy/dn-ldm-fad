@@ -11,6 +11,7 @@ Rails.application.routes.draw do
     delete "/logout", to: "sessions#destroy"
     post "/cart/:product_id/add", to: "carts#add", as: "cart_add"
     get "/cart/update", to: "carts#update", as: "cart_update"
+
     resources :carts, only: [:index, :destroy]
     resources :users, except: [:index, :edit, :destroy] do
       member do
@@ -18,7 +19,12 @@ Rails.application.routes.draw do
         patch :change_password, to: "users#update_change_password"
       end
     end
-    resources :products, only: [:index, :show]
+    resources :products, only: [:index, :show] do
+      member do
+        post :rating, to: "products#rating_product"
+        delete :destroy_rating, to: "products#destroy_rating"
+      end
+    end
     resources :orders, only: [:new, :create]
   end
 end
