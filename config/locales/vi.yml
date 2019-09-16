@@ -242,3 +242,9 @@ vi:
     star:
       one: "%{count} sao"
       other: "%{count} sao"
+  search:
+    search: "Tìm kiếm"
+    empty: "Không tìm thấy món phù hợp"
+    result:
+      one: "%{count} kết quả tìm được với từ khóa"
+      other: "%{count} kết quả tìm được với từ khóa"

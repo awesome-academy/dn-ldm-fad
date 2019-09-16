@@ -8,4 +8,7 @@ class Product < ApplicationRecord
   scope :sort_desc, ->{order created_at: :desc}
   scope :by_ids, ->(ids){where id: ids}
   scope :get_price, ->(id){where(id: id).pluck(:price).first}
+  scope :by_name_price, (lambda do |name_product, price|
+    where "name LIKE (?) OR price <= (?)", "%#{name_product}%", price
+  end)
 end
