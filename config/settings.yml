@@ -1,3 +1,4 @@
+locale: {english: en, vietnamese: vi}
 validates:
   maximum_name: 50
   maximum_email: 255

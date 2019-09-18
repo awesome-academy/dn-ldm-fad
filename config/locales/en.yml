@@ -137,6 +137,7 @@ en:
     old_password_wrong: "Old password wrong!"
     not_empty: "not empty!"
     logged_out_user: "You are not logged in"
+    not_admin: "You are not admin!"
   menu:
     all_menu: "All menu"
     tasty: "Tasty"
@@ -248,3 +249,25 @@ en:
     result:
       one: "%{count} result found with keyword"
       other: "%{count} results found with keyword"
+  admin:
+    dashboard: "Dashboard"
+    logo: "FAD | ADMIN"
+    admin: "Admin"
+    home: "Home"
+    products: "Products manager"
+    categories: "Categories manager"
+    users: "Users manager"
+    orders: "Orders manager"
+    calendar: "Calendar"
+    product:
+      one: "Product"
+      other: "Products"
+    category:
+      one: "Category"
+      other: "Categories"
+    user:
+      one: "User"
+      other: "Users"
+    order:
+      one: "Order"
+      other: "Orders"

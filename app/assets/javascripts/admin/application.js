@@ -14,12 +14,10 @@
 //= require turbolinks
 //= require jquery
 //= require bootstrap-sprockets
-//= require load_image_user
-//= require update_quantity_cart
 //= require i18n
 //= require i18n.js
 //= require i18n/translations
 //= require custom
-//= require comment-rating.js
 //= require admin/bootstrap-datepicker.js
 //= require admin/easypiechart.js
+//= require admin/admin.js

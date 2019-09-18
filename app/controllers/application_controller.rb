@@ -29,4 +29,10 @@ class ApplicationController < ActionController::Base
     session[:carts] ||= {}
     @carts = session[:carts]
   end
+
+  def check_admin?
+    return if logged_in? && current_user.admin?
+    flash[:danger] = t "users.not_admin"
+    redirect_to root_url
+  end
 end

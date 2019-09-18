@@ -3,7 +3,8 @@
     <div class="card-header p-0">
       <a href="menu.html">
       <%= link_to nil, href: product_path(product.id) do %>
-        <%= image_tag("products/#{product.picture}", class: "card-img-bottom") %>
+        <%= image_tag(checked_image(product, :product),
+          class: "card-img-bottom") %>
       <% end %>
     </div>
     <div class="card-body border border-top-0">

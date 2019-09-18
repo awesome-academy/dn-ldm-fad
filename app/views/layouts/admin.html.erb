@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  <meta charset="utf-8">
+  <title><%= full_title(yield(:title)) %></title>
+  <%= render "layouts/admin_default" %>
+  </head>
+  <body>
+    <nav class="navbar navbar-inverse navbar-fixed-top a" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <%= link_to t("admin.logo"), admin_path, class: "navbar-brand" %>
+          <ul class="user-menu">
+             <li class="dropdown pull-right">
+              <%= link_to t("language"), "#", class: "dropdown-toggle" %>
+              <ul class="dropdown-menu" role="menu">
+                <li>
+                  <%= link_to t("english"), locale: Settings.locale[:english] %>
+                </li>
+                <li>
+                  <%= link_to t("vietnamese"),
+                    locale: Settings.locale[:vietnamese] %>
+                </li>
+              </ul>
+            </li>
+            <li class="dropdown pull-right">
+              <%= link_to "#", class: "dropdown-toggle" do %>
+                <span><%= t("admin.admin") %>: <%= current_user.name %></span>
+              <% end %>
+              <ul class="dropdown-menu" role="menu">
+                <li><%= link_to t("users.logout"), logout_path,
+                  method: :delete %>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div id="sidebar-collapse" class="col-sm-3 col-lg-2 sidebar a  si-co">
+      <div class="div-avatar">
+        <%= image_tag(checked_image_user, class: "img-circle") %>
+        <div class="review-block-name">
+          <%= link_to "#" do %>
+            <%= t "admin.admin" %>: <%= current_user.name %>
+          <% end %>
+        </div>
+      </div>
+      <ul class="nav menu menu-admin">
+        <li role="presentation" class="divider"></li>
+        <li class="active tab-menu">
+          <%= link_to "#" do %>
+            <span class="glyphicon glyphicon-th"></span> <%= t "admin.home" %>
+          <% end %>
+        </li>
+        <li class="tab-menu">
+          <%= link_to "#" do %>
+            <span class="glyphicon glyphicon-flag"></span>
+            <%= t "admin.products" %>
+          <% end %>
+        </li>
+        <li class="tab-menu">
+          <%= link_to "#" do %>
+            <span class="glyphicon glyphicon-list-alt"></span>
+            <%= t "admin.categories" %>
+          <% end %>
+        </li>
+        <li class="tab-menu">
+          <%= link_to "#" do %>
+            <span class="glyphicon glyphicon-user"></span>
+            <%= t "admin.users" %>
+          <% end %>
+        </li>
+        <li class="tab-menu">
+          <%= link_to "#" do %>
+            <span class="glyphicon glyphicon-send"></span>
+            <%= t "admin.orders" %>
+          <% end %>
+        </li>
+      </ul>
+    </div><br>
+    <div>
+      <%= yield %>
+    </div>
+  </body>
+</html>

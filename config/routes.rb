@@ -12,7 +12,6 @@ Rails.application.routes.draw do
     post "/cart/:product_id/add", to: "carts#add", as: "cart_add"
     get "/cart/update", to: "carts#update", as: "cart_update"
     get "/search", to: "static_pages#search"
-
     resources :carts, only: [:index, :destroy]
     resources :users, except: [:index, :edit, :destroy] do
       member do
@@ -27,5 +26,8 @@ Rails.application.routes.draw do
       end
     end
     resources :orders, only: [:new, :create]
+    namespace :admin do
+      get "/", to: "dashboars#index"
+    end
   end
 end
