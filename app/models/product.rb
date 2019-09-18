@@ -11,4 +11,5 @@ class Product < ApplicationRecord
   scope :by_name_price, (lambda do |name_product, price|
     where "name LIKE (?) OR price <= (?)", "%#{name_product}%", price
   end)
+  mount_uploader :picture, PictureUploader
 end

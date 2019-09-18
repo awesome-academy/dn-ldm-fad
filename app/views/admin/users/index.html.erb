@@ -1,0 +1,36 @@
+<% provide(:title, t("admin.users.name")) %>
+<div id="navbar" class="row">
+  <div class="col-sm-12">
+    <nav class="navbar navbar-default">
+      <h3><%= t "admin.users.name" %></h3>
+    </nav>
+  </div>
+</div>
+<div class="row">
+  <div class="col-sm-12">
+    <%= render "layouts/message" %>
+    <div class="form-group">
+        <%= search_field_tag :search_user, nil, class: "form-control",
+          id: "searchUsers", placeholder: t("users.placeholder_search") %>
+    </div>
+    <table class="table table-striped">
+      <tr id="tbl-first-row">
+        <td><%= t "users.full_name" %></td>
+        <td><%= t "users.email" %></td>
+        <td><%= t "users.sex" %></td>
+        <td><%= t "users.bithday" %></td>
+        <td><%= t "users.phone" %></td>
+        <td><%= t "users.email" %></td>
+        <td><%= t "users.role" %></td>
+        <td><%= t "users.action" %></td>
+      </tr>
+      <tbody id="getUsers">
+          <%= render @users %>
+      </tbody>
+    </table>
+    <div>
+      <%= will_paginate %>
+    </div>
+  </div>
+</div>
+<%= javascript_include_tag "admin/search_user.js" %>

@@ -74,11 +74,13 @@ h3, h4 {
 	border: 1px solid $color-eee;
 	box-shadow: none;
 }
+
 .form-control:focus {
 	border: 1px solid $a-hover;
 	outline: 0;
 	box-shadow: inset 0px 0px 0px 1px $a-hover;
 }
+
 .navbar-header .navbar-brand {
 	color: $color-fff;
 	font-size: 16px;
@@ -86,6 +88,7 @@ h3, h4 {
 	font-weight: 500;
 	letter-spacing: 2px;
 }
+
 .navbar-header .navbar-brand span {
 	color: $a-hover;
 }
@@ -196,6 +199,7 @@ fieldset[disabled] .btn-warning.active {
 	background-color: $a-hover;
 	border-color: $a-hover;
 }
+
 .btn-danger,
 .btn-danger:hover,
 .btn-danger:focus,
@@ -213,62 +217,11 @@ fieldset[disabled] .btn-danger:hover,
 fieldset[disabled] .btn-danger:focus,
 .btn-danger.disabled:active,
 .btn-danger[disabled]:active,
-fieldset[disabled] .btn-danger:active,
-.btn-danger.disabled.active,
-.btn-danger[disabled].active,
-fieldset[disabled] .btn-danger.active {
-	background-color: $a-hover;
-	border-color: $a-hover;
-}
-
-/*Panels*/
-
-.panel {
-	border: 0;
-}
-.panel-heading {
-	font-size: 18px;
-	font-weight: 300;
-	letter-spacing: 0.025em;
-	height: 66px;
-	line-height: 45px;
-}
-.panel-default .panel-heading {
-	background: $color-fff;
-	border-bottom: 1px solid $color-eee;
-	color: #5f6468;
-}
-.panel-footer {
-	background: $color-fff;
-	border-top: 1px solid #eee;
-}
-.panel-widget {
-	padding: 0;
-	position: relative;
-}
-.panel-widget .panel-footer {
-	border: 0;
-	text-align: center;
-}
-.panel-footer .input-group {
-	padding: 0px;
-	margin: 0 -5px;
-}
-.panel-footer .input-group-btn:last-child>.btn,
-.panel-footer .input-group-btn:last-child>.btn-group {
-	margin: 0;
-}
-.panel-widget .panel-footer a {
-	color: $color-999;
-}
-.panel-widget .panel-footer a:hover {
-	color: $color-666;
-	text-decoration: none;
-}
-.panel-blue { background: #30a5ff; color: #fff; }
-.panel-teal { background: #1ebfae; color: #fff; }
-.panel-orange { background: #ffb53e; color: #fff; }
-.panel-red { background: #f9243f; color: #fff; }
+fieldset[disabled] .btn-danger:active
+.panel-blue { background: #30a5ff; color: $color-fff; }
+.panel-teal { background: #1ebfae; color: $color-fff; }
+.panel-orange { background: #ffb53e; color: $color-fff; }
+.panel-red { background: #f9243f; color: $color-fff; }
 .panel-blue .panel-body p,
 .panel-teal .panel-body p,
 .panel-orange .panel-body p,
@@ -482,7 +435,7 @@ fieldset[disabled] .btn-danger.active {
 .sidebar ul.nav .active > a:hover, .sidebar ul.nav li.parent a.active:hover,
 .sidebar ul.nav .active > a:focus, .sidebar ul.nav li.parent a.active:focus {
 	color: $color-fff;
-	background-color: #30a5ff;
+	background-color: $a-hover;
 }
 
 .sidebar ul.nav ul, .sidebar ul.nav ul li {
@@ -531,7 +484,7 @@ fieldset[disabled] .btn-danger.active {
 	width: 100%;
 	padding: 15px;
 	text-align: center;
-	border-top: 1px solid #eee;
+	border-top: 1px solid #color-eee;
 	font-size: 12px;
 }
 
@@ -553,7 +506,7 @@ h1.page-header {
 /*Charts*/
 
 .main-chart {
-	background: #fff;
+	background: $color-fff;
 }
 
 .easypiechart-panel {

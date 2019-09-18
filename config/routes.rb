@@ -28,6 +28,11 @@ Rails.application.routes.draw do
     resources :orders, only: [:new, :create]
     namespace :admin do
       get "/", to: "dashboars#index"
+      resources :users, except: [:new, :create, :show] do
+        collection do
+            get "/search", to: "users#search"
+        end
+      end
     end
   end
 end

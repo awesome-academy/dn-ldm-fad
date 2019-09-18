@@ -31,11 +31,11 @@
              <%= f.label t "users.sex" %>
           </div>
           <div class="col-md-8 ma">
-            <%= f.radio_button :sex, 0,
-              checked_sex_radio("male") %>
+            <%= f.radio_button :sex, Settings.sex.male,
+              @user.male? ? {checked: true} : {} %>
             <span class="sex"><%= t("users.male") %></span>
-            <%= f.radio_button :sex, 1,
-              checked_sex_radio("female") %>
+            <%= f.radio_button :sex, Settings.sex.female,
+              @user.female? ? {checked: true} : {} %>
             <span class="sex"><%= t("users.female") %></span>
           </div>
         </div>

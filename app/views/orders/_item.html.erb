@@ -1,5 +1,5 @@
 <div class="col-sm-12 imgkout">
-  <%= image_tag "products/#{item.picture}", class: "imgcheckout" %>
+  <%= image_tag checked_image(item, :product), class: "imgcheckout" %>
   <span class="koutsl"><%= @carts[item.id.to_s] %></span>
   <span class="spankout1"><%= item.name %></span>
   <span class="spankout1">
