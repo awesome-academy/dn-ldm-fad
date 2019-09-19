@@ -33,6 +33,7 @@ Rails.application.routes.draw do
             get "/search", to: "users#search"
         end
       end
+      resources :categories, except: :show
     end
   end
 end

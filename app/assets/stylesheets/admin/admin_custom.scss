@@ -1,6 +1,6 @@
 $color-white: #fff;
 $color-000: #000;
-$red: red;
+$color-red: red;
 
 div.si-co {
   margin-top: -32px;
@@ -44,5 +44,16 @@ table {
   }
 }
 .error_message {
-  color: $red;
+  color: $color-red;
+}
+div.div-category {
+  margin-top: -700px;
+  textarea {
+    padding: 10px;
+  }
+  .span-delete {
+    border: none;
+    background: $color-white;
+    color: $color-red;
+  }
 }

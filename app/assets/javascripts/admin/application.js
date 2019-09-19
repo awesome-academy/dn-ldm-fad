@@ -18,6 +18,5 @@
 //= require i18n.js
 //= require i18n/translations
 //= require custom
-//= require admin/bootstrap-datepicker.js
-//= require admin/easypiechart.js
-//= require admin/admin.js
+//= require admin/bootstrap-datepicker
+//= require admin/admin

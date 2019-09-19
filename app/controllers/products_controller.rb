@@ -5,7 +5,7 @@ class ProductsController < ApplicationController
     only: :show
 
   def index
-    @products = Product.display.sort_desc.paginate page: params[:page],
+    @products = Product.display.sort_by_created_at.paginate page: params[:page],
       per_page: Settings.product.paginate
   end
 

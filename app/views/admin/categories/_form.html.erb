@@ -1,0 +1,19 @@
+<%= form_for [:admin, @category] do |f| %>
+  <div class="form-group">
+    <%= f.label t "admin.categories.name_cate" %>
+    <span class="text-require">*</span>
+    <%= f.text_field :name, class: "form-control",
+      placeholder: t("admin.categories.name_cate") %>
+    <%= display_error @category, :name, t("admin.categories.name_cate") %>
+  </div>
+  <div class="form-group">
+    <%= f.label t "admin.categories.description" %><br>
+    <%= f.text_area :description,
+      placeholder: t("admin.categories.description"),
+      cols: Settings.category.area.cols,
+      rows: Settings.category.area.rows %>
+  </div>
+  <div class="form-group">
+    <%= f.button yield(:button_text), class: "btn btn-success" %>
+  </div>
+<% end %>
