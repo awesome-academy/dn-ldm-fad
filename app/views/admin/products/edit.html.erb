@@ -1,0 +1,21 @@
+<% provide(:title, t("admin.products.edit")) %>
+<% provide(:button_text, t("admin.products.edit")) %>
+<div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 div-category">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1 class="page-header"><%= t "admin.products.edit" %></h1>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-md-12 col-lg-12">
+      <div class="panel panel-primary">
+        <div class="panel-heading"><%= t "admin.products.edit" %></div>
+        <%= render "layouts/message" %>
+        <div class="panel-body">
+          <%= render "form" %>
+          <div class="clearfix"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

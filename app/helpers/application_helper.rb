@@ -15,6 +15,10 @@ module ApplicationHelper
       #{object.errors[field].first}</span>"
   end
 
+  def check_description description
+    description.present? ? description : t("admin.categories.des_empty")
+  end
+
   def checked_image object, name
     object.picture? ? object.picture.url : "#{name.to_s}-default.jpg"
   end

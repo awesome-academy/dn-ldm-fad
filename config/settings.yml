@@ -6,6 +6,7 @@ validates:
   maximum_phone: 10
   maximum_address: 255
   maximum_name_cate: 255
+  img_product_size: 3
 year:
   start: 10
   end: 100
@@ -17,6 +18,12 @@ sub_phone:
   num_sub: 8
 product:
   paginate: 8
+  admin_paginate: 8
+  area:
+    cols: 115
+    rows: 5
+  hide: 0
+  block: 1
 cart:
   min_quantity: 1
   max_quantity: 100

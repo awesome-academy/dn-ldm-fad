@@ -18,10 +18,6 @@ module UsersHelper
     sub_phone << "*" * Settings.sub_phone.num_sub
   end
 
-  def checked_image_user
-    @current_user.picture? ? @current_user.picture.url : "user-default.jpg"
-  end
-
   def check_img_comment url
     url.present? ? url : "user-default.jpg"
   end

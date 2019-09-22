@@ -30,10 +30,17 @@ Rails.application.routes.draw do
       get "/", to: "dashboars#index"
       resources :users, except: [:new, :create, :show] do
         collection do
-            get "/search", to: "users#search"
+          get "/search", to: "users#search"
         end
       end
       resources :categories, except: :show
+      resources :products, except: :show do
+        collection do
+          get "/search", to: "products#search"
+          get :categories, to: "products#load_categories"
+          get :product_types, to: "products#load_products_types"
+        end
+      end
     end
   end
 end

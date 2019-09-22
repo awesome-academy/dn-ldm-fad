@@ -70,7 +70,8 @@
             <div class="col-lg-4 col-4 top-w3layouts p-md-0 text-right a">
               <% if logged_in? %>
                 <div class="commenterImage col-lg-4">
-                  <%= image_tag(checked_image_user, style: "margin-left:20px;") %>
+                  <%= image_tag(checked_image(@current_user, :user),
+                    class: "m-left") %>
                 </div>
                 <div class="dropdown col-lg-8">
                   <%= button_tag @current_user.name, type: "button",

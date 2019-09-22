@@ -1,6 +1,8 @@
 $color-white: #fff;
 $color-000: #000;
 $color-red: red;
+$color-ccc: #ccc;
+$color-eee: #eee;
 
 div.si-co {
   margin-top: -32px;
@@ -29,8 +31,7 @@ span.icon-admin {
   background: red;
   padding-right: 80px;
 }
-
-table {
+table, th {
   text-align: center;
   .btn-role {
     padding: 3px;
@@ -55,5 +56,27 @@ div.div-category {
     border: none;
     background: $color-white;
     color: $color-red;
+  }
+  table.product-table {
+    margin-top: 20px;
+    .bg-default {
+      background-color: $color-ccc;
+    }
+    .qty-span {
+      background: url(//theme.hstatic.net/1000243581/1000361905/14/bg-variant-checked.png?v=131) no-repeat right bottom $color-white;
+      padding:2px;
+      border: 1px solid $color-ccc;
+    }
+    td {
+      img {
+        width: 200px;
+      }
+    }
+  }
+  .btn-hide {
+    background: $color-eee;
+  }
+  .div-paginate {
+    margin-left: 38%;
   }
 }
