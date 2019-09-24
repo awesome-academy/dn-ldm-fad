@@ -301,6 +301,12 @@ vi:
       destroy_fail_count:
         one: "Xoá sản phẩm thất bại. Có %{count} đơn hàng có sản phẩm này được khách hàng đặt đang chờ xử lý."
         other: "Xoá sản phẩm thất bại. Có %{count} đơn hàng có sản phẩm này được khách hàng đặt đang chờ xử lý."
+      waiting:
+        one: "Sản phẩm đang có %{count} đơn hàng mới đang chờ xử lý. Nếu tiếp tục, những đơn hàng mới sẽ bị hủy"
+        other: "Sản phẩm đang có %{count} đơn hàng mới đang chờ xử lý. Nếu tiếp tục, những đơn hàng mới sẽ bị hủy"
+      continue: "Tiếp tục"
+      back: "Quay lại"
+      you_sure: "Bạn có chắc chắn muốn xóa? Cảnh báo: Tất cả những đơn hàng của sản phẩm này này cũng bị xóa!"
     categories:
       name: "Quản lí danh mục"
       not_found: "Không tìm thấy danh mục"
@@ -320,9 +326,14 @@ vi:
       update_fail: "Cập nhật danh mục thất bại!"
       des_empty: "Không có mô tả."
       destroy_fail_count:
-        one: "Xoá danh mục thất bại. Có %{count} sản phẩm thuộc danh mục này đã được khách hàng đặt đang chờ xử lý."
-        other: "Xoá danh mục thất bại. Có %{count} sản phẩm thuộc danh mục này đang được khách hàng đặt đang chờ xử lý."
+        one: "Xoá danh mục thất bại. Có %{count} đơn hàng có sản phẩm thuộc danh mục này đã được khách hàng đặt đang chờ xử lý."
+        other: "Xoá danh mục thất bại. Có %{count} đơn hàng  có sản phẩm thuộc danh mục này đang được khách hàng đặt đang chờ xử lý."
       you_sure_confirm: "Bạn chắc chắn chứ. Nhấn Ok để xử lý đơn hàng."
+      waiting:
+        one: "Có %{count} đơn hàng có sản phẩm thuộc danh mục này có đơn hàng mới đang chờ xử lý. Nếu tiếp tục, những đơn hàng mới sẽ bị hủy và xóa"
+        other: "Có %{count} đơn hàng có sản phẩm thuộc danh mục này có đơn hàng mới đang chờ xử lý. Nếu tiếp tục, những đơn hàng mới sẽ bị hủy và xóa"
+      continue: "Tiếp tục"
+      back: "Quay lại"
     fail: "Thao tác thất bại!"
     users:
       name: "Quản lí tài khoản"
@@ -354,7 +365,7 @@ vi:
       quantity_item: "Số lương mua"
       price_item: "Giá mua"
       back: "Quay lại"
-      date: "Ngày đặt"
+      date_order: "Ngày đặt"
       image: "Ảnh món"
       handling: "Xử lí"
       status_handling: "cập nhật trạng thái đơn hàng"
@@ -364,6 +375,9 @@ vi:
       update_fail: "Cập nhật trạng thái đơn hàng thất bại"
       note_empty: "Không có mô tả"
       fail: "Lỗi hệ thống"
+      date:
+        formats:
+          default: "%d-%m-%Y"
     calendar: "Lịch"
     product:
       one: "Sản phẩm"

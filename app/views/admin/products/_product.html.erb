@@ -17,7 +17,8 @@
       <span class="btn glyphicon glyphicon-pencil text-success"></span>
     <% end %><br><br>
     <%= link_to admin_product_path(product.id), method: :delete,
-      data: {confirm: t("cart.you_sure")} do %>
+      data: {id: product.id}, class: "confirm_destroy_product",
+      id: "destroy-#{product.id}" do %>
       <span class="glyphicon glyphicon-trash text-danger"></span>
     <% end %>
   </td>

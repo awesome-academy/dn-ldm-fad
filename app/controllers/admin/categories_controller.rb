@@ -1,7 +1,8 @@
 class Admin::CategoriesController < Admin::AdminsController
   before_action :load_categories, only: [:index, :create]
-  before_action :load_category, only: [:edit, :update, :destroy]
-  before_action :check_product_order, only: :destroy
+  before_action :load_category, only: [:edit, :update, :destroy,
+    :confirm_before_destroy]
+  before_action :check_product_order, only: [:destroy, :confirm_before_destroy]
 
   def index
     @category = Category.new
@@ -32,11 +33,28 @@ class Admin::CategoriesController < Admin::AdminsController
 
   def destroy
     if @count.zero?
-      destroy_category
+      if @waiting.zero?
+        destroy_category
+      else
+        destroy_for_order_waiting
+      end
     else
       flash[:danger] = t "admin.categories.destroy_fail_count", count: @count
     end
     redirect_to admin_categories_path
+  end
+
+  def confirm_before_destroy
+    if @count.positive?
+      message = t "admin.categories.destroy_fail_count", count: @count
+    elsif @count.zero? && @waiting.positive?
+      message = t "admin.categories.waiting", count: @waiting
+    else
+      message = t "admin.categories.you_sure"
+    end
+    respond_to do |format|
+      format.json{render json: {message: message}}
+    end
   end
 
   private
@@ -65,13 +83,39 @@ class Admin::CategoriesController < Admin::AdminsController
     end
   end
 
+  def destroy_for_order_waiting
+    ActiveRecord::Base.transaction do
+      update_qty_product
+      destroy_category
+    end
+  rescue StandardError
+    flash[:danger] = t "admin.products.destroy_fail"
+  end
+
   def check_product_order
     @count = 0
+    @waiting = 0
+    @order_waitings = []
     @category.products.each do |product|
       product.orders.each do |order|
-        if order.waiting? || order.approve? || order.delivering?
-          @count += Settings.category.count
+        @count += Settings.category.count if order.approve? || order.delivering?
+        if order.waiting?
+          @waiting += Settings.category.count
+          @order_waitings.push order
         end
+      end
+    end
+  end
+
+  def update_qty_product
+    @order_waitings.each do |order|
+      order.update_attributes status: :cancel
+      order.order_details.each do |order_detail|
+        product = order_detail.product
+        next if product.category_id == @category.id
+        qty_old = product.quantity
+        qty_update = qty_old + order_detail.quantity
+        product.update_attribute :quantity, qty_update
       end
     end
   end

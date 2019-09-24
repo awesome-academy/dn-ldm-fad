@@ -7,7 +7,8 @@
         <span class="btn glyphicon glyphicon-pencil">
       <% end %>
       <%= link_to admin_category_path(category.id), method: :delete,
-        data: {confirm: t("admin.categories.you_sure")} do %>
+        data: {id: category.id}, class: "confirm_destroy_category",
+        id: "destroy-category-#{category.id}" do %>
         <span class="glyphicon glyphicon-trash span-delete"></span>
       <% end %>
   </td>

@@ -14,9 +14,11 @@
     <%= link_to admin_order_path(order.id) do %>
       <span class="btn glyphicon glyphicon-search"></span>
     <% end %><br>
-    <%= link_to admin_order_path(order.id), method: :delete,
-      data: {confirm: t("admin.orders.you_sure")} do  %>
-      <span class="glyphicon glyphicon-trash text-danger"></span>
+    <% unless order.approve? || order.delivering? %>
+      <%= link_to admin_order_path(order.id), method: :delete,
+        data: {confirm: t("admin.orders.you_sure")} do  %>
+        <span class="glyphicon glyphicon-trash text-danger"></span>
+      <% end %>
     <% end %>
   </td>
 </tr>

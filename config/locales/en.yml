@@ -301,6 +301,12 @@ en:
       destroy_fail_count:
         one: "Delete product faild. There are %{count} product that are pending by customers."
         other: "Delete product faild. There are %{count} products that are pending by customers."
+      waiting:
+        one: "There are %{count} product pending by customers."
+        other: "There are %{count} products pending by customers."
+      continue: "Continue"
+      back: "Back"
+      you_sure: "Are you sure you want to delete? Warning: All orders in this product are deleted!"
     categories:
       name: "Categories manager"
       not_found: "Category not found!"
@@ -323,6 +329,11 @@ en:
         one: "Delete category faild. There are %{count} product in this category that are pending by customers."
         other: "Delete category faild. There are %{count} products in this category that are pending by customers."
       you_sure_confirm: "Are you sure. Click Ok to process the order."
+      waiting:
+        one: "There are %{count} product in this category that are pending by customers."
+        other: "There are %{count} products in this category that are pending by customers."
+      continue: "Continue"
+      back: "Back"
     fail: "Failed action"
     users:
       name: "Users manager"
@@ -354,7 +365,7 @@ en:
       quantity_item: "Quantity"
       price_item: "Price"
       back: "Back"
-      date: "Date"
+      date_order: "Date"
       image: "Image"
       handling: "Handling"
       status_handling: "Update status order"
@@ -364,6 +375,9 @@ en:
       update_fail: "Update status order fail!"
       note_empty: "Description empty"
       fail: "System error"
+      date:
+        formats:
+          default: "%m-%d-%Y"
     calendar: "Calendar"
     product:
       one: "Product"
