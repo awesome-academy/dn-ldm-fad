@@ -1,0 +1,22 @@
+<tr>
+  <td><%= order.id %></td>
+  <td><%= order.customer %></td>
+  <td><%= order.phone %></td>
+  <td><%= order.address %></td>
+  <td><%= check_description order.description %></td>
+  <td><%= order.created_at %></td>
+  <td>
+    <span class="btn btn-<%= order.status %> btn-order">
+      <%= t "admin.orders.#{order.status}" %>
+    </span>
+  </td>
+  <td>
+    <%= link_to admin_order_path(order.id) do %>
+      <span class="btn glyphicon glyphicon-search"></span>
+    <% end %><br>
+    <%= link_to admin_order_path(order.id), method: :delete,
+      data: {confirm: t("admin.orders.you_sure")} do  %>
+      <span class="glyphicon glyphicon-trash text-danger"></span>
+    <% end %>
+  </td>
+</tr>

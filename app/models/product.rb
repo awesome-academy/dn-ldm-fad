@@ -3,6 +3,7 @@ class Product < ApplicationRecord
   belongs_to :product_type
   has_many :order_details, dependent: :destroy
   has_many :ratings, dependent: :destroy
+  has_many :orders, through: :order_details
   delegate :name, to: :category, prefix: :category
   delegate :name, to: :product_type, prefix: :product_type
   enum status: {hide: 0, display: 1}
@@ -19,6 +20,7 @@ class Product < ApplicationRecord
   scope :by_name_price, (lambda do |name_product, price|
     where "name LIKE (?) OR price <= (?)", "%#{name_product}%", price
   end)
+  scope :by_category, ->(id){where category_id: id}
   mount_uploader :picture, PictureUploader
 
   private

@@ -3,11 +3,15 @@ class Order < ApplicationRecord
   has_many :order_details, dependent: :destroy
   has_one :payment, dependent: :destroy
   has_many :products, through: :order_details
-  enum status: {waiting: 0, approve: 1, delivering: 3, delivered: 4, cancel: 5}
+  enum status: {waiting: 0, approve: 1, delivering: 2, delivered: 3, cancel: 4}
   validates :customer, presence: true,
     length: {maximum: Settings.validates.maximum_name}
   validates :phone, presence: true,
     length: {maximum: Settings.validates.maximum_phone}
   validates :address, presence: true,
     length: {maximum: Settings.validates.maximum_address}
+  scope :by_customer_phone, (lambda do |search|
+    where "customer LIKE (?) OR phone LIKE (?)", "%#{search}%", "%#{search}%"
+  end)
+  scope :by_status, ->(status){where status: status}
 end

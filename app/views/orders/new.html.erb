@@ -11,7 +11,7 @@
       </div>
       <div class="divkout2">
         <%= link_to "#" do %>
-          <%= image_tag(checked_image_user) %>
+          <%= image_tag(checked_image @current_user, :user) %>
         <% end %>
         <span><%= @current_user.name %></span>
         <%= link_to t("users.logout"), logout_path %>

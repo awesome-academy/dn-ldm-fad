@@ -3,6 +3,16 @@ $color-000: #000;
 $color-red: red;
 $color-ccc: #ccc;
 $color-eee: #eee;
+$color-333: #333;
+$btn-success: #5cb85c;
+$btn-info: #5bc0de;
+$btn-prymari: #428bca;
+$btn-danger: #d9534f;
+$cancel: #d43f3a;
+$prymari: #357ebd;
+$info: #46b8da;
+$success: #4cae4c;
+$lg: #FFEBCD;
 
 div.si-co {
   margin-top: -32px;
@@ -79,4 +89,55 @@ div.div-category {
   .div-paginate {
     margin-left: 38%;
   }
+  .btn-order {
+    padding: 1px 7px;
+  }
+  .btn-waiting {
+    color: $color-333;
+    background-color: $color-white;
+    border-color: $color-ccc;
+  }
+  .btn-approve {
+    color: $color-white;
+    background-color: $btn-success;
+    border-color: $success;
+  }
+  .btn-delivering {
+    color: $color-white;
+    background-color: $btn-info;
+    border-color: $info;
+  }
+  .btn-delivered {
+    color: $color-white;
+    background-color: $btn-prymari;
+    border-color: $prymari;
+  }
+  .btn-cancel {
+    color: $color-white;
+    background-color: $btn-danger;
+    border-color: $cancel;
+  }
+  .search-order {
+    float: left;
+    width: 50%;
+    margin-right: 20px;
+  }
+  .div-filter {
+    width: 20%;
+    float: left;
+  }
+  .table-detail {
+    margin-top: 20px;
+    text-align: center;
+    font-size: 15px;
+    width: 60%;
+  }
+  .select-status {
+    width: 30%;
+    margin-bottom: 20px;
+    background: $lg;
+  }
+}
+.img-order {
+  width: 200px;
 }
