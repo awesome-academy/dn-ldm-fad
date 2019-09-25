@@ -34,15 +34,24 @@ Rails.application.routes.draw do
           get :search, to: "users#search"
         end
       end
-      resources :categories, except: :show
+      resources :categories, except: :show do
+        collection do
+          get :confirm_before_destroy, to: "categories#confirm_before_destroy"
+        end
+      end
       resources :products, except: :show do
         collection do
           get :search, to: "products#search"
           get :categories, to: "products#load_categories"
           get :product_types, to: "products#load_products_types"
+          get :confirm_before_destroy, to: "products#confirm_before_destroy"
+        end
+        member do
+          delete  :destroy_for_order_waiting,
+            to: "products#destroy_for_order_waiting"
         end
       end
-      resources :orders, except: [:new, :create, :destroy] do
+      resources :orders, except: [:new, :create] do
         collection do
           get :search, to: "orders#search"
           get :filter_by_status, to: "orders#filter_by_status"

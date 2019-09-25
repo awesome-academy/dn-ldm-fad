@@ -1,12 +1,11 @@
 class Admin::ProductsController < Admin::AdminsController
-  before_action :load_product, only: [:edit, :update, :destroy]
+  before_action :load_product, only: [:edit, :update, :destroy,
+    :confirm_before_destroy]
+  before_action :load_products, only: :index
   before_action :status_to_i, only: [:create, :update]
-  before_action :check_order, only: :destroy
+  before_action :check_order, only: [:destroy, :confirm_before_destroy]
 
-  def index
-    @products = Product.sort_by_created_at.paginate page: params[:page],
-      per_page: Settings.product.admin_paginate
-  end
+  def index; end
 
   def new
     @product = Product.new
@@ -37,11 +36,28 @@ class Admin::ProductsController < Admin::AdminsController
 
   def destroy
     if @count.zero?
-      destroy_product
+      if @waiting.zero?
+        destroy_product
+      else
+        destroy_for_order_waiting
+      end
     else
       flash[:danger] = t "admin.products.destroy_fail_count", count: @count
     end
     redirect_to admin_products_path
+  end
+
+  def confirm_before_destroy
+    if @count.positive?
+      message = t "admin.products.destroy_fail_count", count: @count
+    elsif @count.zero? && @waiting.positive?
+      message = t "admin.products.waiting", count: @waiting
+    else
+      message = t "cart.you_sure"
+    end
+    respond_to do |format|
+      format.json{render json: {message: message}}
+    end
   end
 
   def search
@@ -86,6 +102,11 @@ class Admin::ProductsController < Admin::AdminsController
     redirect_to admin_products_path
   end
 
+  def load_products
+    @products = Product.sort_by_created_at.paginate page: params[:page],
+      per_page: Settings.product.admin_paginate
+  end
+
   def destroy_product
     if @product.destroy
       flash[:success] = t "admin.products.destroy_success"
@@ -94,11 +115,40 @@ class Admin::ProductsController < Admin::AdminsController
     end
   end
 
+  def destroy_for_order_waiting
+    ActiveRecord::Base.transaction do
+      update_qty_product
+      destroy_product
+    end
+  rescue StandardError
+    flash[:danger] = t "admin.products.destroy_fail"
+  end
+
   def check_order
     @count = 0
+    @waiting = 0
+    @order_waitings = []
     @product.orders.each do |order|
-      if order.waiting? || order.approve? || order.delivering?
-        @count += Settings.category.count
+      @count += Settings.category.count if order.approve? || order.delivering?
+      if order.waiting?
+        @waiting += Settings.category.count
+        @order_waitings.push order
+      end
+    end
+  end
+
+  def update_qty_product
+    @order_waitings.each do |order|
+      byebug
+      order.update_attributes status: :cancel
+      order.order_details.each do |order_detail|
+        product = order_detail.product
+        byebug
+        next if product.id == @product.id
+        qty_old = product.quantity
+        qty_update = qty_old + order_detail.quantity
+        product.update_attribute :quantity, qty_update
+        byebug
       end
     end
   end

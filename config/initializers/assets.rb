@@ -11,4 +11,4 @@ Rails.application.config.assets.paths << Rails.root.join('node_modules')
 # Precompile additional assets.
 # application.js, application.css, and all non-JS/CSS in the app/assets
 # folder are already added.
-Rails.application.config.assets.precompile += %w( comment-rating.js update_quantity_cart.js admin/search_user.js admin/order.js admin/load_select_cate_type.js )
+Rails.application.config.assets.precompile += %w( comment-rating.js update_quantity_cart.js admin/search_user.js admin/order.js admin/load_select_cate_type.js admin/confirm_destroy_product.js admin/confirm_destroy_category.js )

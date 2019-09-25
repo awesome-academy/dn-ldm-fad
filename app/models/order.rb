@@ -13,5 +13,4 @@ class Order < ApplicationRecord
   scope :by_customer_phone, (lambda do |search|
     where "customer LIKE (?) OR phone LIKE (?)", "%#{search}%", "%#{search}%"
   end)
-  scope :by_status, ->(status){where status: status}
 end

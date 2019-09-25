@@ -32,7 +32,7 @@ class Admin::OrdersController < Admin::AdminsController
 
   def filter_by_status
     @orders = if params[:status].present?
-                Order.by_status(params[:status]).sort_by_created_at
+                Order.send(params[:status]).sort_by_created_at
                      .paginate page: params[:page],
                        per_page: Settings.order.admin_paginate
               else
@@ -40,6 +40,18 @@ class Admin::OrdersController < Admin::AdminsController
                   per_page: Settings.order.admin_paginate
               end
     respond_to_data_order
+  end
+
+  def destroy
+    ActiveRecord::Base.transaction do
+      update_qty_product if @order.waiting?
+      @order.destroy
+      flash[:success] = t "admin.orders.destroy_success"
+      redirect_to admin_orders_path
+    end
+  rescue StandardError
+    flash[:danger] = t "admin.orders.destroy_fail"
+    redirect_to admin_orders_path
   end
 
   private
