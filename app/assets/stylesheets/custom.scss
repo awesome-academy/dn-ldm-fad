@@ -48,6 +48,11 @@ $bg-btn-box-rate: #ee4d2d;
 $half-star-after: #bdc3c7;
 $half-star: #e67e22;
 $color-a9a9a9: #a9a9a9;
+$color-f1f1f1: #f1f1f1;
+$color-ddd: #ddd;
+$price: #ed4e4e;
+$qty: #fa2000;
+$a-cart-c: #f72b3f;
 
 .pa {
   padding: $p-5px;
@@ -367,7 +372,7 @@ div.pagination {
 /* style cart  */
 .div-cart {
   border-right:1px solid $color-ccc;
-  padding-bottom: 10.2%;
+  padding-bottom: 25.2%;
   text-align: center;
   .th-product {
     width: 30%;
@@ -946,3 +951,96 @@ div.panel-red {
 .radio label input[type="radio"]:disabled + .cr {
     opacity: .5;
 }
+
+/* Dropdown Button */
+.dropbtn {
+  font-size: 21px;
+  border: none;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.qty-cart {
+  position: absolute;
+  top: -10px;
+  right: -15px;
+  background: $qty;
+  color: $color-white;
+  padding: 0 6px;
+  border-radius: 50px;
+  font-size: 15px;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: $color-f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 999999;
+  padding-bottom: 15px;
+  table {
+    width: 300px;
+    img {
+      width: 80px;
+    }
+    tr, td {
+      padding: 10px;
+      span.price-cart {
+        color: $price;
+      }
+      span.span-qty {
+        background: url(//theme.hstatic.net/1000243581/1000361905/14/bg-variant-checked.png?v=131) no-repeat right bottom $color-white;
+        padding: 2px 4px;
+      }
+    }
+  }
+  span.total-price {
+    margin-left: 30px;
+    margin-top: 20px;
+    span {
+      color: $price;
+      margin-left: 40px;
+    }
+  }
+  a.a-cart {
+    color: $color-white;
+    background: $color-000;
+    text-decoration: none;
+    padding: 7px 20px;
+    margin-right: 10px;
+    border-radius: 0;
+  }
+  a.a-cart-c {
+    color: $color-white;
+    background: $a-cart-c;
+    text-decoration: none;
+    padding: 7px 20px;
+    border-radius: 0;
+  }
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.cart-ml {
+  margin-left: 30px;
+}
+#cart-empty {
+  margin-left: 30px;
+  z-index: 9999999999;
+}
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: $color-ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}

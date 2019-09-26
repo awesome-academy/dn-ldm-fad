@@ -1,0 +1,24 @@
+<tr>
+  <td>
+    <p class="text-dark"><%= product.name %></p>
+    <%= link_to product do %>
+      <%= image_tag checked_image(product, :product) %>
+    <% end %>
+  </td>
+  <td>
+    <span class="span-qty" id="qty-<%= product.id %>">
+      x<%= @carts[product.id.to_s] %>
+    </span>
+  </td>
+  <td>
+    <span class="price-cart" id="amount-price-<%= product.id %>">
+      <%= number_to_currency amount_product(@carts[product.id.to_s],
+        product.price) %>
+    </span>
+  </td>
+  <td>
+    <%= link_to "",cart_path(product.id), remote: true, method: :delete,
+      data: {confirm: t("cart.you_sure")},
+      class: "glyphicon glyphicon-remove btn-remove btn-remove-#{product.id}" %>
+  </td>
+</tr>

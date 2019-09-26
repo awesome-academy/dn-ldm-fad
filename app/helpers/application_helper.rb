@@ -22,4 +22,8 @@ module ApplicationHelper
   def checked_image object, name
     object.picture? ? object.picture.url : "#{name.to_s}-default.jpg"
   end
+
+  def load_size_cart
+    session[:carts].size
+  end
 end

@@ -23,7 +23,6 @@ class Product < ApplicationRecord
   scope :by_name_price, (lambda do |name_product, price|
     where "name LIKE (?) OR price <= (?)", "%#{name_product}%", price
   end)
-  scope :by_category, ->(id){where category_id: id}
   scope :by_price, ->(min, max){where "price BETWEEN (?) AND (?)", min, max}
   scope :by_cate_ids, (lambda do |cate_ids|
     where "category_id IN (?)", cate_ids if cate_ids.present?

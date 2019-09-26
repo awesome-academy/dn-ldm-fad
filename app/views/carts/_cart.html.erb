@@ -1,8 +1,8 @@
 <tr>
   <td><br><br>
-    <%= link_to "",cart_path(cart.id), method: :delete,
+    <%= link_to "",cart_path(cart.id), method: :delete, remote: :true,
       data: {confirm: t("cart.you_sure")},
-      class: "glyphicon glyphicon-remove btn-remove" %>
+      class: "glyphicon glyphicon-remove btn-remove btn-remove-#{cart.id}" %>
   </td>
   <td>
     <%= link_to product_path(cart.id) do %>

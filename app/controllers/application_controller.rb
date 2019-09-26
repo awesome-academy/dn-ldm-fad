@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   include CartsHelper
   protect_from_forgery with: :exception
   before_action :set_locale
+  before_action :load_content_cart
 
   private
 
@@ -39,5 +40,11 @@ class ApplicationController < ActionController::Base
   def load_category_product_type
     @categories = Category.sort_by_name.pluck :id, :name
     @product_types = ProductType.sort_by_name.pluck :id, :name
+  end
+
+  def load_content_cart
+    load_cart_session
+    @products_cart = Product.by_ids @carts.keys
+    @total_price = total_price @carts, @products_cart
   end
 end
