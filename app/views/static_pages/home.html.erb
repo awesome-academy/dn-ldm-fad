@@ -25,4 +25,18 @@
       <%= will_paginate @products %>
     </div>
   </section>
+  <section class="blog_w3ls py-5">
+    <div class="container pb-xl-5 pb-lg-3">
+      <div class="title-section text-center mb-md-5 mb-4">
+        <p class="w3ls-title-sub"><%= t "menu.menu" %></p>
+        <h3 class="w3ls-title"><%= t "menu.hot" %>
+        <span><%= t "menu.order" %></span></h3>t
+      </div>
+      <div class="row">
+        <% @hot_order_details.each do |order_detail| %>
+          <%= render partial: "products/product", object: order_detail.product %>
+        <% end %>
+      </div>
+    </div>
+  </section>
 <% end %>

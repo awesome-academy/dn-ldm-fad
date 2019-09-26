@@ -48,13 +48,13 @@ class Admin::ProductsController < Admin::AdminsController
   end
 
   def confirm_before_destroy
-    if @count.positive?
-      message = t "admin.products.destroy_fail_count", count: @count
-    elsif @count.zero? && @waiting.positive?
-      message = t "admin.products.waiting", count: @waiting
-    else
-      message = t "cart.you_sure"
-    end
+    message = if @count.positive?
+                t "admin.products.destroy_fail_count", count: @count
+              elsif @count.zero? && @waiting.positive?
+                t "admin.products.waiting", count: @waiting
+              else
+                t "cart.you_sure"
+              end
     respond_to do |format|
       format.json{render json: {message: message}}
     end
@@ -139,16 +139,13 @@ class Admin::ProductsController < Admin::AdminsController
 
   def update_qty_product
     @order_waitings.each do |order|
-      byebug
       order.update_attributes status: :cancel
       order.order_details.each do |order_detail|
         product = order_detail.product
-        byebug
         next if product.id == @product.id
         qty_old = product.quantity
         qty_update = qty_old + order_detail.quantity
         product.update_attribute :quantity, qty_update
-        byebug
       end
     end
   end

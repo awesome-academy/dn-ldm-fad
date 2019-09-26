@@ -3,17 +3,24 @@
   <%= render "layouts/page_detail" %>
 <% end %>
 <% content_for :product do %>
-  <section class="blog_w3ls py-5">
-    <div class="container pb-xl-5 pb-lg-3">
+  <section class="blog_w3ls py-5 div-show-product">
+    <div class="col-sm-3 a"><br><br><br><br>
+        <%= render "left" %>
+    </div>
+    <div class="col-sm-9 pb-xl-5 pb-lg-3">
       <div class="title-section text-center mb-md-5 mb-4">
-        <p class="w3ls-title-sub"><%= t "menu.tasty" %></p>
         <h3 class="w3ls-title"><%= t "menu.our" %>
         <span><%= t "menu.menu" %></span></h3>
       </div>
       <div class="row">
-        <%= render @products %>
+        <% if @products.any? %>
+          <%= render @products %>
+        <% else %>
+          <p class="a"><%= t "search.empty" %></p>
+        <% end %>
       </div>
-      <%= will_paginate %>
+      <%=  will_paginate  %>
     </div>
   </section>
 <% end %>
+

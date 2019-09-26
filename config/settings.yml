@@ -25,6 +25,7 @@ product:
   hide: 0
   block: 1
   count: 1
+  hot_limit: 4
 cart:
   min_quantity: 1
   max_quantity: 100
@@ -50,3 +51,10 @@ category:
   count: 1
 order:
   admin_paginate: 5
+price:
+  one: "0-100000"
+  two: "100000-200000"
+  three: "200000-300000"
+  four: "300000-100000000"
+price_min: 0
+price_max: 10000000

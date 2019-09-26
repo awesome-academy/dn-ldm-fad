@@ -4,7 +4,7 @@
   <td><%= order.phone %></td>
   <td><%= order.address %></td>
   <td><%= check_description order.description %></td>
-  <td><%= order.created_at %></td>
+  <td><%= order.created_at.strftime(Settings.date_format.vn) %></td>
   <td>
     <span class="btn btn-<%= order.status %> btn-order">
       <%= t "admin.orders.#{order.status}" %>

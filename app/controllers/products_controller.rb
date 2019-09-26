@@ -3,6 +3,8 @@ class ProductsController < ApplicationController
   before_action :load_product, :load_one_star, :load_two_star, :load_three_star,
     :load_four_star, :load_five_star, :load_sum_star, :load_avt_star,
     only: :show
+  before_action :load_category_product_type, only: [:index, :search_product]
+  before_action :load_price_search, only: :search_product
 
   def index
     @products = Product.display.sort_by_created_at.paginate page: params[:page],
@@ -33,7 +35,24 @@ class ProductsController < ApplicationController
     redirect_to product_path(@rating.product_id)
   end
 
+  def search_product
+    @products = Product.display.by_price(@price_min, @price_max)
+                       .by_cate_type(params[:category_ids], params[:type_ids])
+                       .by_cate_ids(params[:category_ids])
+                       .by_type_ids(params[:type_ids])
+                       .sort_desc.paginate page: params[:page],
+                         per_page: Settings.product.paginate
+    render :index
+  end
+
   private
+
+  def load_price_search
+    @price = params[:price].split("-")
+    @price_min = @price.first.to_i
+    @price_max = @price.second.to_i
+    @price_max = Settings.price_max if @price_max.zero?
+  end
 
   def load_one_star
     @one_star = @product.ratings.very_bad.count_star
