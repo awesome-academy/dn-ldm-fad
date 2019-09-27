@@ -1,0 +1,72 @@
+<% provide(:title, t("users.register")) %>
+<% content_for :page_detail do %>
+  <%= render "layouts/page_detail" %>
+<% end %>
+<div class="login-contect py-5">
+  <div class="container py-xl-5 py-3">
+    <div class="login-body">
+      <div class="login p-4 mx-auto">
+        <h5 class="text-center mb-4"><%= t "users.register" %></h5>
+          <%= form_for(resource, as: resource_name,
+            url: registration_path(resource_name)) do |f| %>
+            <%= render "devise/shared/error_messages", resource: resource %>
+            <div class="form-group">
+              <%= f.label t "users.your_name" %>
+              <span class="text-require">*</span>
+              <%= f.text_field :name, autofocus: true, autocomplete: "name",
+                class: "form-control a" %>
+            </div>
+            <div class="form-group">
+              <%= f.label t "users.email" %>
+              <span class="text-require">*</span>
+              <%= f.email_field :email, autofocus: true, autocomplete: "email",
+                class: "form-control" %>
+            </div>
+            <div class="form-group">
+              <%= f.label t "users.password" %>
+              <span class="text-require">*</span>
+              <% if @minimum_password_length %>
+              <em>(<%= @minimum_password_length %> characters minimum)</em>
+              <% end %><br />
+              <%= f.password_field :password, autocomplete: "new-password",
+                class: "form-control a" %>
+            </div>
+            <div class="form-group">
+              <%= f.label t "users.confirm_pass" %>
+              <span class="text-require">*</span>
+              <%= f.password_field :password_confirmation,
+                autocomplete: "new-password", class: "form-control a" %>
+            </div>
+            <div class="form-group">
+              <%= f.label t "users.sex" %>:
+              <%= f.radio_button :sex, Settings.sex.male %>
+              <span class="sex"><%= t("users.male") %></span>
+              <%= f.radio_button :sex, Settings.sex.female %>
+              <span class="sex"><%= t("users.female") %></span>
+            </div>
+            <div class="form-group">
+              <%= f.label t "users.birthday" %>
+              <%= f.date_select :birthday, {order: [:day, :month, :year],
+                prompt: { day: t("users.select_day"),
+                month: t("users.select_moth"), year: t("users.select_year") },
+                start_year: load_start_year, end_year: load_end_year},
+                class: :birthday %>
+            </div>
+            <div class="form-group">
+              <%= f.label t "users.phone" %>
+              <%= f.text_field :phone, class: "form-control a" %>
+            </div>
+            <div class="form-group">
+              <%= f.label t "users.address" %>
+              <%= f.text_field :address, class: "form-control a" %>
+            </div>
+            <div class="actions a">
+              <%= f.submit t("users.register"), class: "btn submit mb-4 a" %>
+              <br>
+              <%= render "devise/shared/links" %>
+            </div>
+          <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -5,15 +5,12 @@ Rails.application.routes.draw do
     get "/home", to: "static_pages#home"
     get "/about", to: "static_pages#about"
     get "/contact", to: "static_pages#contact"
-    get "/register", to: "users#new"
-    get "/login", to: "sessions#new"
-    post "/login", to: "sessions#create"
-    delete "/logout", to: "sessions#destroy"
     get "/cart/:product_id/add", to: "carts#add", as: "cart_add"
     get "/cart/update", to: "carts#update", as: "cart_update"
     get "/search", to: "static_pages#search"
     resources :carts, only: [:index, :destroy]
-    resources :users, except: [:index, :edit, :destroy] do
+    devise_for :users
+    resources :users, only: [:show, :update] do
       member do
         get :change_password
         patch :change_password, to: "users#update_change_password"
