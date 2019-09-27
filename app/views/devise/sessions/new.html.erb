@@ -28,7 +28,8 @@
             </div>
           <% end %>
           <div class="actions a">
-            <%= f.submit t("users.login"), class: "btn submit mb-4 a" %><br>
+            <%= f.submit t("users.login"),
+              class: "btn a btn-login btn-success form-control" %><br>
             <%= render "devise/shared/links" %>
           </div>
         <% end %>

@@ -61,8 +61,8 @@
               <%= f.text_field :address, class: "form-control a" %>
             </div>
             <div class="actions a">
-              <%= f.submit t("users.register"), class: "btn submit mb-4 a" %>
-              <br>
+              <%= f.submit t("users.register"),
+                class: "btn btn-login btn-info form-control" %><br>
               <%= render "devise/shared/links" %>
             </div>
           <% end %>
