@@ -10,8 +10,9 @@ class Product < ApplicationRecord
   VALID_IMG_REGEX = /.(jpg|png)\Z/i
   validates :name, presence: true,
     length: {maximum: Settings.validates.maximum_name}
-  validates :price, presence: true
-  validates :quantity, presence: true
+  validates :price, presence: true, numericality: {only_integer: true}
+  validates :quantity, presence: true, numericality: {only_integer: true}
+  validates :status, presence: true, numericality: {only_integer: true}
   validates :category_id, presence: true
   validates :product_type_id, presence: true
   validate  :picture_size

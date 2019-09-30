@@ -11,6 +11,10 @@ class User < ApplicationRecord
     format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
   validates :password, presence: true, allow_nil: true,
     length: {minimum: Settings.validates.minimum_password}
+  validates :password, presence: true
+  validates :phone, numericality: {only_integer: true},
+    length: {is: Settings.validates.maximum_phone}
+  validates :address, length: {maximum: Settings.validates.maximum_address}
   before_save :downcase_email
   has_secure_password
   mount_uploader :picture, PictureUploader
