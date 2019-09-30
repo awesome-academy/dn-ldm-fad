@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-md-4">
       <div class="profile-img">
-        <%= image_tag(checked_image(current_user, :user), id: :avatar,
+        <%= image_tag(checked_image(@user, :user), id: :avatar,
           class: "avatar img-circle img-thumbnail") %>
           <div class="file btn btn-lg btn-primary">
               <%= t "users.change_avatar" %>
@@ -13,7 +13,7 @@
     </div>
     <div class="col-md-6">
       <div class="profile-head">
-        <h3><%= current_user.name %></h3>
+        <h3><%= @user.name %></h3>
         <h5>
             <%= t "users.user_account" %>
         </h5>
@@ -29,14 +29,14 @@
         <p class="p-updated">
           <span><%= t "users.updated_at" %>:
           </span>
-          <%= @current_user.updated_at.strftime(Settings.date_format.vn) %></p>
+          <%= @user.updated_at.strftime(Settings.date_format.vn) %></p>
     </div>
   </div>
   <div class="row">
       <div class="col-md-4">
         <div class="profile-work">
             <p class="a"><%= t "users.my_account" %></p>
-            <%= link_to t("users.profile"), @current_user %><br/>
+            <%= link_to t("users.profile"), @user %><br/>
             <%= link_to t("users.change_pass"), change_password_user_path %><br/>
             <%= link_to t("users.order"), "#" %><br/>
             <%= link_to t("users.comment"), "#" %><br/>
@@ -45,7 +45,68 @@
       <div class="col-md-8 tab-profile">
           <div class="tab-content profile-tab" id="myTabContent">
             <div class="tab-pane fade show active">
-              <%= yield f %>
+              <div class="row mb">
+                <div class="col-md-4">
+                    <%= f.label "users.name" %>
+                </div>
+                <div class="col-md-8">
+                    <%= f.text_field :name, class: "pa" %>
+                </div>
+              </div>
+              <div class="row">
+                  <div class="col-md-4">
+                      <%= f.label "users.email" %>
+                  </div>
+                  <div class="col-md-8">
+                      <span>
+                        <%= sub_email_user %>
+                      </span> <%= link_to t("users.change"), "#" %>
+                  </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4 ma">
+                   <%= f.label t "users.sex" %>
+                </div>
+                <div class="col-md-8 ma">
+                  <%= f.radio_button :sex, Settings.sex.male,
+                    @user.male? ? {checked: true} : {} %>
+                  <span class="sex"><%= t("users.male") %></span>
+                  <%= f.radio_button :sex, Settings.sex.female,
+                    @user.female? ? {checked: true} : {} %>
+                  <span class="sex"><%= t("users.female") %></span>
+                </div>
+              </div>
+              <div class="row ma mb">
+                <div class="col-md-4">
+                  <%= f.label t "users.birthday" %>
+                </div>
+                <div class="col-md-8">
+                  <%= f.date_select :birthday, order: [:day, :month, :year],
+                    start_year: load_start_year, end_year: load_end_year %>
+                </div>
+              </div>
+              <div class="row mb">
+                <div class="col-md-4">
+                    <%= f.label t "users.phone" %>
+                </div>
+                <div class="col-md-8">
+                  <span><%= sub_phone_user %></span>
+                  <%= link_to t("users.change"), "#" %>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-4">
+                  <%= f.label t "users.address" %>
+                </div>
+                <div class="col-md-8" w>
+                  <%= f.text_field :address,
+                    placeholder: t("users.add_address"),
+                    style: "padding:5px;width:100%"%>
+                  <div >
+                    <%= f.button t("users.save"), class: "btn-profile" %>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
       </div>
