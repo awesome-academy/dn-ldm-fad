@@ -47,6 +47,7 @@ end
 group :test do
   gem "guard-rspec"
   gem "launchy"
+  gem "rails-controller-testing"
   gem "shoulda-matchers"
 end
 
