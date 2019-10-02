@@ -68,13 +68,14 @@
               </div>
             </div>
             <div class="col-lg-4 col-4 top-w3layouts p-md-0 text-right a">
-              <% if logged_in? %>
+
+              <% if user_signed_in? %>
                 <div class="commenterImage col-lg-4">
-                  <%= image_tag(checked_image(@current_user, :user),
+                  <%= image_tag(checked_image(current_user, :user),
                     class: "m-left") %>
                 </div>
                 <div class="dropdown col-lg-8">
-                  <%= button_tag @current_user.name, type: "button",
+                  <%= button_tag current_user.name, type: "button",
                     class: "btn btn-default dropdown-toggle a",
                     id: "dropdownMenu1", "data-toggle" => "dropdown" %>
                   <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
@@ -82,13 +83,13 @@
                       <%= link_to t("users.profile"), current_user %>
                     </li>
                     <li class="a">
-                      <%= link_to t("users.logout"), logout_path,
+                      <%= link_to t("users.logout"), destroy_user_session_path,
                         method: :delete %>
                     </li>
                   </ul>
                 </div>
               <% else %>
-                <%= link_to(nil, href: login_path,
+                <%= link_to(nil, href: new_user_session_path,
                   class: "btn login-button-2 text-uppercase text-wh") do %>
                   <span class="fa fa-sign-in mr-2"></span>
                   <%= t "layout.header.login" %>

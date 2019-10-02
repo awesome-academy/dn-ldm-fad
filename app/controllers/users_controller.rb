@@ -1,24 +1,8 @@
 class UsersController < ApplicationController
-  before_action :check_logged_in, only: :new
-  before_action :load_user, :correct_user, except: [:new, :create]
+  before_action :authenticate_user!
+  before_action :load_user, :correct_user
 
   def show; end
-
-  def new
-    @user = User.new
-  end
-
-  def create
-    @user = User.new user_params
-    if @user.save
-      log_in @user
-      flash[:success] = t "users.register_success"
-      redirect_to root_url
-    else
-      flash.now[:danger] = t "users.register_fail"
-      render :new
-    end
-  end
 
   def update
     if @user.update_attributes(user_params)
@@ -40,6 +24,7 @@ class UsersController < ApplicationController
       render :change_password
     elsif @user.update_attributes(user_params)
       flash[:success] = t "users.change_password_success"
+      bypass_sign_in @user
       redirect_to @user
     else
       render :change_password
@@ -49,7 +34,7 @@ class UsersController < ApplicationController
   private
 
   def check_old_password
-    !@user.authenticate(params[:old_password])
+    !@user.valid_password? params[:old_password]
   end
 
   def correct_user
@@ -57,13 +42,8 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    sex_to_i unless params[:user][:sex].blank?
     params.require(:user).permit :name, :email, :password,
       :password_confirmation, :sex, :birthday, :phone, :address, :picture
-  end
-
-  def sex_to_i
-    params[:user][:sex] = params[:user][:sex].to_i
   end
 
   def load_user

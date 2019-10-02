@@ -151,6 +151,8 @@ vi:
     destroy_fail: "Xóa tài khoản thất bại!"
     delete: "Xoá"
     user_empty: "Không có tài khoản nào"
+    remember_me: "Nhớ mật khẩu"
+    resend_confirm_account: "Gửi lại hướng dẫn xác nhận"
   menu:
     all_menu: "Tất cả menu"
     tasty: "Mới"

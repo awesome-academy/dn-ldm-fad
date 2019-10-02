@@ -151,6 +151,9 @@ en:
     destroy_fail: "Remove user fail!"
     delete: "Delete"
     user_empty: "User empty"
+    remember_me: "Remember me"
+    send_mail_rest_pass: "Send me reset password instructions"
+    resend_confirm_account: "Resend confirmation instructions"
   menu:
     all_menu: "All menu"
     tasty: "New"
