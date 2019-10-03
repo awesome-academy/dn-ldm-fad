@@ -153,6 +153,10 @@ vi:
     user_empty: "Không có tài khoản nào"
     remember_me: "Nhớ mật khẩu"
     resend_confirm_account: "Gửi lại hướng dẫn xác nhận"
+    or: "Hoặc"
+    or_login: "Đăng nhập với tài khoản facebook, google"
+    did_not_confirm: "Không nhận được hướng dẫn xác nhận?"
+    you_sure: "Bạn chắc chứ?"
   menu:
     all_menu: "Tất cả menu"
     tasty: "Mới"

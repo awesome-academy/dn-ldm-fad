@@ -58,3 +58,6 @@ price:
   four: "300000-100000000"
 price_min: 0
 price_max: 10000000
+custom_fb_gg:
+  i: 0
+  up_i: 1

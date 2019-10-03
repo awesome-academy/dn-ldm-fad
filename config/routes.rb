@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  devise_for :users, only: :omniauth_callbacks,
+      controllers: {omniauth_callbacks: "omniauth_callbacks"}
+
   scope "(:locale)", locale: /en|vi/ do
     root "static_pages#home"
 
@@ -9,7 +12,9 @@ Rails.application.routes.draw do
     get "/cart/update", to: "carts#update", as: "cart_update"
     get "/search", to: "static_pages#search"
     resources :carts, only: [:index, :destroy]
-    devise_for :users
+    devise_for :users, path: "",
+      path_names: {sign_in: "login" ,sign_out: "logout",
+      sign_up: "resgistration"}, skip: :omniauth_callbacks
     resources :users, only: [:show, :update] do
       member do
         get :change_password
