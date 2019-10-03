@@ -7,6 +7,7 @@ end
 
 gem "bcrypt", "3.1.12"
 gem "bootstrap-sass", "3.3.7"
+gem "cancancan"
 gem "carrierwave", "1.2.2"
 gem "coffee-rails", "~> 4.2"
 gem "config"

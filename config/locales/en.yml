@@ -160,6 +160,7 @@ en:
     or_login: "Login with your social media account"
     did_not_confirm: "Didn't receive confirmation instructions?"
     you_sure: "Are you sure?"
+    you_need_login: "You need login"
   menu:
     all_menu: "All menu"
     tasty: "New"
