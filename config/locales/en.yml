@@ -286,6 +286,9 @@ en:
       three: "From 200000-300000"
       four: "More 300000"
       name: "Search by price"
+      min: ">= to"
+      max: "<= to"
+    sort_by: "Sort by"
   admin:
     dashboard: "Dashboard"
     logo: "FAD | ADMIN"
