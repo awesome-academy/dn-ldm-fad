@@ -157,6 +157,7 @@ vi:
     or_login: "Đăng nhập với tài khoản facebook, google"
     did_not_confirm: "Không nhận được hướng dẫn xác nhận?"
     you_sure: "Bạn chắc chứ?"
+    you_need_login: "Bạn cần đăng nhập"
   menu:
     all_menu: "Tất cả menu"
     tasty: "Mới"

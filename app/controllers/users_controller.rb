@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :authenticate_user!
-  before_action :load_user, :correct_user
+  before_action :load_user
+  authorize_resource
 
   def show; end
 
@@ -35,10 +35,6 @@ class UsersController < ApplicationController
 
   def check_old_password
     !@user.valid_password? params[:old_password]
-  end
-
-  def correct_user
-    redirect_to root_url unless current_user? @user
   end
 
   def user_params

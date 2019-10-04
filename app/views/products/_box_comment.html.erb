@@ -1,6 +1,6 @@
 <div class="row div-box-rate">
   <div class="col-sm-7">
-    <% if logged_in? %>
+    <% if user_signed_in? %>
       <div class="text-left">
         <%= button_tag t("detail.write"), class: "btn btn-box-rate a",
           id: "open-review-box" %>
@@ -10,7 +10,7 @@
             <%= form_for(@rating, url: rating_product_path(@product.id)) do |f| %>
               <div class="row">
                 <div class="col-sm-2">
-                  <%= image_tag(checked_image(@current_user, :user),
+                  <%= image_tag(checked_image(current_user, :user),
                     class: "img-circle img-rate") %>
                   <div class="review-block-name"><%= current_user.name %></div>
                 </div>
@@ -40,7 +40,8 @@
         </div>
       </div>
       <% else %>
-        <%= link_to t("users.login"), login_path %> <%= t "detail.write_now" %>
+        <%= link_to t("users.login"), new_user_session_path %>
+        <%= t "detail.write_now" %>
       <% end %>
   </div>
 </div>

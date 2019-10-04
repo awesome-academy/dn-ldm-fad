@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+  authorize_resource
   before_action :load_rating, only: :destroy_rating
   before_action :load_product, :load_one_star, :load_two_star, :load_three_star,
     :load_four_star, :load_five_star, :load_sum_star, :load_avt_star,

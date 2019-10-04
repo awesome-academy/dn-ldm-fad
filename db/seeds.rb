@@ -17,7 +17,7 @@ User.create!(name:  "Lê Đức Mạnh",
 
   5.times do |m|
     product = Product.create!(name: "Product#{m+1}",
-                              image: "product#{m}.jpg",
+                              picture: "product#{m}.jpg",
                               price: rand(100000..500000),
                               quantity: rand(50..200),
                               description: Faker::Lorem.sentence(10),

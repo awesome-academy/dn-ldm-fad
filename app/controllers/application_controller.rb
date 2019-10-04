@@ -20,12 +20,6 @@ class ApplicationController < ActionController::Base
     @carts = session[:carts]
   end
 
-  def check_admin?
-    return if user_signed_in? && current_user.admin?
-    flash[:danger] = t "users.not_admin"
-    redirect_to root_url
-  end
-
   def load_category_product_type
     @categories = Category.sort_by_name.pluck :id, :name
     @product_types = ProductType.sort_by_name.pluck :id, :name
@@ -44,5 +38,15 @@ class ApplicationController < ActionController::Base
 
   def current_user? user
     user == current_user
+  end
+
+  rescue_from CanCan::AccessDenied do |exception|
+    if user_signed_in?
+      flash[:danger] = exception.message
+      redirect_to root_url
+    else
+      flash[:danger] = t "users.you_need_login"
+      redirect_to new_user_session_path
+    end
   end
 end

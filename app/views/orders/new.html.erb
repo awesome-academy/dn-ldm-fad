@@ -11,10 +11,10 @@
       </div>
       <div class="divkout2">
         <%= link_to "#" do %>
-          <%= image_tag(checked_image @current_user, :user) %>
+          <%= image_tag(checked_image current_user, :user) %>
         <% end %>
-        <span><%= @current_user.name %></span>
-        <%= link_to t("users.logout"), logout_path %>
+        <span><%= current_user.name %></span>
+        <%= link_to t("users.logout"), destroy_user_session_path %>
         <%= render "form" %>
       </div>
     </div>

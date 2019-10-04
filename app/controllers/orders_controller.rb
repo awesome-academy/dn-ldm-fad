@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
-  before_action :authenticate_user!, :load_cart_session, only: [:new, :create]
+  authorize_resource
+  before_action :load_cart_session, only: [:new, :create]
   before_action :load_products, only: :new
   after_action :remove_carts, only: :create
 
