@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     get "/contact", to: "static_pages#contact"
     get "/cart/:product_id/add", to: "carts#add", as: "cart_add"
     get "/cart/update", to: "carts#update", as: "cart_update"
-    get "/search", to: "static_pages#search"
+    match "search" => "static_pages#search", via: [:get, :post], as: :search
     resources :carts, only: [:index, :destroy]
     devise_for :users, path: "",
       path_names: {sign_in: "login" ,sign_out: "logout",
@@ -22,9 +22,6 @@ Rails.application.routes.draw do
       end
     end
     resources :products, only: [:index, :show] do
-      collection do
-        get :searchs, to: "products#search_product"
-      end
       member do
         post :rating, to: "products#rating_product"
         delete :destroy_rating, to: "products#destroy_rating"

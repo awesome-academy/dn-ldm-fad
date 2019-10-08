@@ -6,7 +6,7 @@ class Product < ApplicationRecord
   has_many :orders, through: :order_details
   delegate :name, to: :category, prefix: :category
   delegate :name, to: :product_type, prefix: :product_type
-  enum status: {hide: 0, display: 1}
+  enum status: {hide: 0, displayed: 1}
   VALID_IMG_REGEX = /.(jpg|png)\Z/i
   validates :name, presence: true,
     length: {maximum: Settings.validates.maximum_name}
@@ -37,6 +37,8 @@ class Product < ApplicationRecord
     end
   end)
   mount_uploader :picture, PictureUploader
+  ransack_alias :by_name_cate_type,
+    :name_or_category_name_or_product_type_name
 
   private
 

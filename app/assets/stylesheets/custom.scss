@@ -951,6 +951,10 @@ div.panel-red {
 .radio label input[type="radio"]:disabled + .cr {
     opacity: .5;
 }
+.input_price {
+  width: 40%;
+  padding: 3px 10px;
+}
 
 /* Dropdown Button */
 .dropbtn {

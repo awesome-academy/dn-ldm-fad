@@ -1,10 +1,15 @@
-<%= form_tag(searchs_products_path, method: :get) do %>
+<%= search_form_for @q do |f| %>
   <div>
-    <%= label_tag nil, t("admin.categories.category") %><br>
+    <%= f.label t("search.sort_by") %>:
+    <%= sort_link @q, :name, t("admin.products.name_pro") %>,
+    <%= sort_link @q, :price, t("admin.products.price") %>
+  </div><br>
+  <div>
+    <%= f.label :category_id_in, t("admin.categories.category") %><br>
     <% @categories.each do |k, v| %>
       <div class="checkbox">
         <%= label_tag nil, nil do %>
-          <%= check_box_tag "category_ids[]", k %>
+          <%= f.check_box :category_id_in, {multiple: true}, k, false %>
           <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
           <%= v %>
         <% end %>
@@ -16,7 +21,7 @@
     <% @product_types.each do |k, v| %>
       <div class="checkbox">
         <%= label_tag nil, nil do %>
-          <%= check_box_tag "type_ids[]", k %>
+          <%= f.check_box :product_type_id_in, {multiple: true}, k, false %>
           <span class="cr"><i class="cr-icon glyphicon glyphicon-ok"></i></span>
           <%= v %>
         <% end %>
@@ -25,8 +30,10 @@
   </div>
   <div>
     <%= label_tag nil, t("admin.products.price") %><br>
-    <%= select_tag :price, options_for_select(load_select_price),
-     {include_blank: t("search.price.name")} %>
+    <%= f.text_field :price_gteq, class: "input_price",
+      placeholder: t("search.price.min") %> ~
+    <%= f.text_field :price_lteq, class: "input_price",
+      placeholder: t("search.price.max") %><br>
   </div><br>
   <%= button_tag t("search.search"), class: "btn-profile" %>
 <% end %>

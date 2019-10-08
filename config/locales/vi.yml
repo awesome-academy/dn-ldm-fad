@@ -283,6 +283,9 @@ vi:
       three: "Từ 200,000-300,000 đ"
       four: "Trên 300,000 đ"
       name: "Tìm kiếm theo giá"
+      min: ">= giá"
+      max: "<= giá"
+    sort_by: "Sắp xếp theo"
   admin:
     dashboard: "Trang quản trị"
     logo: "FAD | TRANG QUẢN TRỊ"

@@ -3,6 +3,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   before_action :set_locale
   before_action :load_content_cart
+  before_action :load_search_products
   before_action :configure_permitted_parameters, if: :devise_controller?
 
   private
@@ -48,5 +49,9 @@ class ApplicationController < ActionController::Base
       flash[:danger] = t "users.you_need_login"
       redirect_to new_user_session_path
     end
+  end
+
+  def load_search_products
+    @q = Product.ransack params[:q]
   end
 end
