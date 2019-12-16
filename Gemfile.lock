@@ -122,7 +122,7 @@ GEM
       dry-inflector (~> 0.1, >= 0.1.2)
       dry-logic (~> 1.0, >= 1.0.2)
     erubi (1.9.0)
-    excon (0.67.0)
+    excon (0.71.0)
     execjs (2.7.0)
     factory_bot (5.1.0)
       activesupport (>= 4.2.0)
